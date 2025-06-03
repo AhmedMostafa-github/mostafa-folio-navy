@@ -73,6 +73,7 @@ export default {
 			backgroundImage: {
 				'navy-gradient': 'linear-gradient(135deg, #001F3F 0%, #003366 100%)',
 				'dark-gradient': 'linear-gradient(135deg, #0D1117 0%, #161b22 100%)',
+				'active-tab': 'linear-gradient(135deg, #3399FF 0%, #001F3F 100%)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -123,6 +124,14 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px rgba(51, 153, 255, 0.2)'
+					},
+					'50%': {
+						boxShadow: '0 0 30px rgba(51, 153, 255, 0.4)'
+					}
 				}
 			},
 			animation: {
@@ -130,7 +139,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-in-left': 'slide-in-left 0.6s ease-out',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite alternate'
 			}
 		}
 	},

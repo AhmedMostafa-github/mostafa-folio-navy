@@ -14,16 +14,16 @@
     --popover: 210 11% 9%;
     --popover-foreground: 210 40% 95%;
 
-    --primary: 210 100% 25%;
+    --primary: 210 100% 60%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 11% 15%;
     --secondary-foreground: 210 40% 95%;
 
     --muted: 210 11% 15%;
-    --muted-foreground: 215.4 16.3% 56.9%;
+    --muted-foreground: 215.4 16.3% 70%;
 
-    --accent: 210 11% 15%;
+    --accent: 210 100% 60%;
     --accent-foreground: 210 40% 95%;
 
     --destructive: 0 84.2% 60.2%;
@@ -31,7 +31,7 @@
 
     --border: 210 11% 15%;
     --input: 210 11% 15%;
-    --ring: 210 100% 25%;
+    --ring: 210 100% 60%;
 
     --radius: 0.5rem;
   }
@@ -44,6 +44,7 @@
 
   body {
     @apply bg-background text-foreground font-inter;
+    background-color: #0D1117;
   }
 
   html {
@@ -53,10 +54,46 @@
 
 @layer components {
   .glow-effect {
-    box-shadow: 0 0 20px rgba(68, 112, 255, 0.3);
+    box-shadow: 0 0 30px rgba(51, 153, 255, 0.4);
   }
   
   .text-glow {
-    text-shadow: 0 0 10px rgba(68, 112, 255, 0.5);
+    text-shadow: 0 0 15px rgba(51, 153, 255, 0.6);
+  }
+
+  .card-glow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(51, 153, 255, 0.1);
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, #0D1117 0%, #161b22 50%, #001F3F 100%);
+  }
+
+  .text-primary-blue {
+    color: #66B2FF;
+  }
+
+  .bg-active-tab {
+    background: linear-gradient(135deg, #3399FF 0%, #001F3F 100%);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes glow {
+    from { box-shadow: 0 0 20px rgba(51, 153, 255, 0.2); }
+    to { box-shadow: 0 0 30px rgba(51, 153, 255, 0.4); }
   }
 }
