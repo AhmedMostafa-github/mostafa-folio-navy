@@ -22,21 +22,23 @@ export const Navigation = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/50"
+      className="fixed top-0 left-0 right-0 z-50 modern-nav"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link to="/" className="text-xl font-bold text-glow">
-              Ahmed Mostafa
+            <Link to="/" className="text-2xl font-bold text-glow">
+              <span className="bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent">
+                Ahmed Mostafa
+              </span>
             </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-2">
+          <div className="hidden md:flex space-x-1">
             {navItems.map((item) => (
               <motion.div
                 key={item.path}
@@ -47,21 +49,21 @@ export const Navigation = () => {
                 <Link
                   to={item.path}
                   className={cn(
-                    "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative overflow-hidden",
+                    "px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 relative overflow-hidden",
                     location.pathname === item.path
-                      ? "text-white"
-                      : "text-primary-blue hover:text-white"
+                      ? "text-white shadow-lg"
+                      : "text-primary-blue hover:text-white hover:bg-white/5"
                   )}
                 >
                   {location.pathname === item.path && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 bg-active-tab"
+                      className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-500 rounded-xl"
                       initial={false}
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
-                  <span className="relative z-10">{item.name}</span>
+                  <span className="relative z-10 font-semibold">{item.name}</span>
                 </Link>
               </motion.div>
             ))}
@@ -74,21 +76,21 @@ export const Navigation = () => {
           >
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md text-primary-blue hover:text-white transition-colors"
+              className="p-3 rounded-xl text-primary-blue hover:text-white hover:bg-white/5 transition-all duration-300"
             >
               <div className="w-6 h-6 flex flex-col justify-around">
                 <motion.span 
-                  className="w-full h-0.5 bg-current"
+                  className="w-full h-0.5 bg-current rounded-full"
                   animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
                   transition={{ duration: 0.3 }}
                 />
                 <motion.span 
-                  className="w-full h-0.5 bg-current"
+                  className="w-full h-0.5 bg-current rounded-full"
                   animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 />
                 <motion.span 
-                  className="w-full h-0.5 bg-current"
+                  className="w-full h-0.5 bg-current rounded-full"
                   animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -105,7 +107,7 @@ export const Navigation = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden py-4 space-y-2 overflow-hidden"
+              className="md:hidden py-6 space-y-3 overflow-hidden"
             >
               {navItems.map((item, index) => (
                 <motion.div
@@ -118,10 +120,10 @@ export const Navigation = () => {
                     to={item.path}
                     onClick={() => setIsOpen(false)}
                     className={cn(
-                      "block px-3 py-2 rounded-md text-base font-medium transition-all duration-300",
+                      "block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300",
                       location.pathname === item.path
-                        ? "text-white bg-active-tab"
-                        : "text-primary-blue hover:text-white hover:bg-muted"
+                        ? "text-white bg-gradient-to-r from-blue-600 to-blue-500 shadow-lg"
+                        : "text-primary-blue hover:text-white hover:bg-white/5"
                     )}
                   >
                     {item.name}
