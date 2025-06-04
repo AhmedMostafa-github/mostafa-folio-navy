@@ -6,15 +6,8 @@ import { Badge } from "@/components/ui/badge";
 const About = () => {
   return (
     <div className="min-h-screen pt-20 pb-16 px-4 relative overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Effects */}
       <div className="absolute inset-0 z-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&h=1080&fit=crop')",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/80 to-navy-950/90" />
         <motion.div
           animate={{ 
             scale: [1, 1.1, 1],
@@ -55,7 +48,7 @@ const About = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main Story */}
+          {/* Main Story with coding background */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -63,7 +56,17 @@ const About = () => {
             className="lg:col-span-2"
           >
             <Card className="bg-card/80 backdrop-blur-xl border-border h-full relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+              {/* Coding background image for this section only */}
+              <div className="absolute inset-0 z-0">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+                  style={{
+                    backgroundImage: "url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop')",
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-navy-950/70" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+              </div>
               <CardHeader className="relative z-10">
                 <CardTitle className="text-2xl font-semibold text-foreground">
                   My Story

@@ -9,6 +9,7 @@ const careerHistory = [
     company: "TechCorp Solutions",
     position: "Senior Full-Stack Developer",
     duration: "2022 - Present",
+    year: "2022",
     logo: "🚀",
     description: "Leading development of enterprise-scale applications with React, Node.js, and cloud technologies. Mentoring junior developers and architecting scalable solutions.",
     achievements: [
@@ -23,6 +24,7 @@ const careerHistory = [
     company: "Digital Innovations Inc",
     position: "Full-Stack Developer",
     duration: "2020 - 2022",
+    year: "2020",
     logo: "💡",
     description: "Developed and maintained web applications for various clients. Worked with cross-functional teams to deliver high-quality software solutions.",
     achievements: [
@@ -37,6 +39,7 @@ const careerHistory = [
     company: "StartupTech",
     position: "Frontend Developer",
     duration: "2019 - 2020",
+    year: "2019",
     logo: "⭐",
     description: "Focused on frontend development using modern JavaScript frameworks. Collaborated closely with UX/UI designers to create intuitive user interfaces.",
     achievements: [
@@ -51,6 +54,7 @@ const careerHistory = [
     company: "WebDev Agency",
     position: "Junior Developer",
     duration: "2018 - 2019",
+    year: "2018",
     logo: "🌱",
     description: "Started my professional journey learning full-stack development. Worked on various client projects and gained experience with different technologies.",
     achievements: [
@@ -120,9 +124,12 @@ const Career = () => {
         </motion.div>
 
         <div className="relative">
-          {/* Animated Timeline line */}
+          {/* Animated Timeline line - now dashed */}
           <motion.div 
-            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-blue-500/50 transform md:-translate-x-0.5 rounded-full"
+            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-blue-500/50 transform md:-translate-x-0.5"
+            style={{
+              backgroundImage: "repeating-linear-gradient(to bottom, transparent, transparent 10px, rgba(51, 153, 255, 0.5) 10px, rgba(51, 153, 255, 0.5) 20px)"
+            }}
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1 }}
             transition={{ duration: 1.5, delay: 0.5 }}
@@ -139,15 +146,32 @@ const Career = () => {
                 index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-4'
               }`}
             >
-              {/* Animated Timeline dot */}
+              {/* Animated Timeline dot - moved outside */}
               <motion.div 
-                className="absolute left-2 md:left-1/2 w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform md:-translate-x-3 z-20 shadow-lg"
+                className="absolute left-1 md:left-1/2 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform md:-translate-x-4 z-20 shadow-lg border-4 border-background"
                 initial={{ scale: 0, rotate: 180 }}
                 whileInView={{ scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
                 whileHover={{ scale: 1.2 }}
               />
+
+              {/* Year label beside bullet */}
+              <motion.div
+                className={`absolute top-2 z-20 ${
+                  index % 2 === 0 
+                    ? 'left-12 md:right-1/2 md:left-auto md:pr-6 md:text-right' 
+                    : 'left-12 md:left-1/2 md:pl-6'
+                }`}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
+              >
+                <span className="text-sm font-semibold text-primary bg-background/80 backdrop-blur-sm px-2 py-1 rounded">
+                  {job.year}
+                </span>
+              </motion.div>
               
               <motion.div
                 whileHover={{ 
@@ -155,7 +179,7 @@ const Career = () => {
                   y: -5,
                   transition: { duration: 0.2 }
                 }}
-                className="ml-8 md:ml-0"
+                className="ml-8 md:ml-0 mt-8"
               >
                 <Card className="bg-card/80 backdrop-blur-xl border-border hover:border-primary/50 transition-all duration-500 relative overflow-hidden shadow-xl">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />

@@ -71,6 +71,7 @@ const Skills = () => {
                 scale: 1.02,
                 transition: { duration: 0.2 }
               }}
+              className="group"
             >
               <Card className="h-full bg-card/50 backdrop-blur-xl border-border hover:border-primary/50 transition-all duration-300 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
@@ -78,6 +79,20 @@ const Skills = () => {
                   <CardTitle className="flex items-center text-2xl font-semibold text-foreground">
                     <motion.span 
                       className="text-3xl mr-3"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        rotate: [0, -10, 10, -10, 0],
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        ease: "easeInOut",
+                        times: [0, 0.2, 0.5, 0.8, 1],
+                        repeat: 0,
+                        repeatDelay: 0
+                      }}
+                      style={{
+                        animation: "none"
+                      }}
                       whileHover={{
                         scale: 1.2,
                         rotate: [0, -10, 10, -10, 0],
@@ -99,11 +114,6 @@ const Skills = () => {
                         transition={{ 
                           duration: 0.3, 
                           delay: categoryIndex * 0.2 + skillIndex * 0.05 
-                        }}
-                        whileHover={{
-                          scale: 1.1,
-                          y: -2,
-                          transition: { duration: 0.2 }
                         }}
                       >
                         <Badge 
