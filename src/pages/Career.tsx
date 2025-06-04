@@ -64,92 +64,186 @@ const careerHistory = [
 
 const Career = () => {
   return (
-    <div className="min-h-screen pt-20 pb-16 px-4">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen pt-20 pb-16 px-4 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <motion.div
+          animate={{ 
+            scale: [1, 1.1, 1],
+            opacity: [0.1, 0.2, 0.1]
+          }}
+          transition={{ 
+            duration: 8, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ 
+            scale: [1.1, 1, 1.1],
+            opacity: [0.15, 0.05, 0.15]
+          }}
+          transition={{ 
+            duration: 10, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <motion.h1 
+            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             Career Journey
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-primary-blue max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             My professional evolution from junior developer to senior engineer, 
             showcasing growth, achievements, and the technologies that shaped my career.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/30 transform md:-translate-x-0.5" />
+          {/* Animated Timeline line */}
+          <motion.div 
+            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-blue-500/50 transform md:-translate-x-0.5 rounded-full"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+          />
 
           {careerHistory.map((job, index) => (
             <motion.div
               key={job.id}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`relative mb-16 ${
+              initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className={`relative mb-20 ${
                 index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-4'
               }`}
             >
-              {/* Timeline dot */}
-              <div className="absolute left-2 md:left-1/2 w-4 h-4 bg-primary rounded-full transform md:-translate-x-2 z-10" />
+              {/* Animated Timeline dot */}
+              <motion.div 
+                className="absolute left-2 md:left-1/2 w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform md:-translate-x-3 z-20 shadow-lg"
+                initial={{ scale: 0, rotate: 180 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+                whileHover={{ scale: 1.2 }}
+              />
               
-              <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 ml-8 md:ml-0">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-3xl">{job.logo}</span>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-semibold text-foreground">
-                        {job.position}
-                      </CardTitle>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-1">
-                        <span className="text-lg font-medium text-primary">
-                          {job.company}
-                        </span>
-                        <Badge variant="outline" className="w-fit">
-                          {job.duration}
-                        </Badge>
+              <motion.div
+                whileHover={{ 
+                  scale: 1.02, 
+                  y: -5,
+                  transition: { duration: 0.2 }
+                }}
+                className="ml-8 md:ml-0"
+              >
+                <Card className="bg-card/80 backdrop-blur-xl border-border hover:border-primary/50 transition-all duration-500 relative overflow-hidden shadow-xl">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0"
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  
+                  <CardHeader className="relative z-10">
+                    <div className="flex items-center gap-3 mb-2">
+                      <motion.span 
+                        className="text-4xl"
+                        whileHover={{
+                          scale: 1.2,
+                          rotate: [0, -10, 10, 0],
+                          transition: { duration: 0.5 }
+                        }}
+                      >
+                        {job.logo}
+                      </motion.span>
+                      <div className="flex-1">
+                        <CardTitle className="text-xl font-semibold text-foreground">
+                          {job.position}
+                        </CardTitle>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-1">
+                          <span className="text-lg font-medium text-primary">
+                            {job.company}
+                          </span>
+                          <Badge variant="outline" className="w-fit bg-blue-500/10 border-blue-500/30">
+                            {job.duration}
+                          </Badge>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </CardHeader>
-                
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {job.description}
-                  </p>
+                  </CardHeader>
                   
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">Key Achievements:</h4>
-                    <ul className="space-y-1">
-                      {job.achievements.map((achievement, achievementIndex) => (
-                        <li 
-                          key={achievementIndex}
-                          className="text-muted-foreground flex items-start gap-2"
-                        >
-                          <span className="text-primary mt-1.5 text-xs">▸</span>
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">Technologies:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {job.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs">
-                          {tech}
-                        </Badge>
-                      ))}
+                  <CardContent className="space-y-6 relative z-10">
+                    <p className="text-primary-blue leading-relaxed">
+                      {job.description}
+                    </p>
+                    
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-3">Key Achievements:</h4>
+                      <ul className="space-y-2">
+                        {job.achievements.map((achievement, achievementIndex) => (
+                          <motion.li 
+                            key={achievementIndex}
+                            className="text-primary-blue flex items-start gap-3"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.2 + achievementIndex * 0.1 }}
+                          >
+                            <motion.span 
+                              className="text-primary mt-1.5 text-sm"
+                              whileHover={{ scale: 1.2 }}
+                            >
+                              ▸
+                            </motion.span>
+                            {achievement}
+                          </motion.li>
+                        ))}
+                      </ul>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                    
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-3">Technologies:</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {job.technologies.map((tech, techIndex) => (
+                          <motion.div
+                            key={tech}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.2 + techIndex * 0.05 }}
+                            whileHover={{ scale: 1.1, y: -2 }}
+                          >
+                            <Badge variant="secondary" className="text-xs bg-white/10 hover:bg-blue-500/20 transition-colors duration-200">
+                              {tech}
+                            </Badge>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </motion.div>
           ))}
         </div>

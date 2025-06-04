@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Code, Rocket, Mail, Download, Github, Linkedin } from "lucide-react";
+import { Code, Rocket, Mail, Download, Linkedin } from "lucide-react";
 
 const Index = () => {
   const containerVariants = {
@@ -84,11 +84,16 @@ const Index = () => {
                     ease: "easeOut",
                     delay: 0.5
                   }}
-                  className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 border-2 border-blue-500/30 card-glow animate-glow"
+                  className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 border-2 border-blue-500/30 card-glow animate-glow overflow-hidden"
                 >
-                  <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                    <span className="text-6xl font-bold text-primary-blue">AM</span>
-                  </div>
+                  <motion.img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                    alt="Ahmed Mostafa"
+                    className="w-full h-full object-cover rounded-full"
+                    initial={{ scale: 1.2, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 1.5, delay: 0.8 }}
+                  />
                 </motion.div>
                 <motion.div
                   animate={{ rotate: 360 }}
@@ -100,9 +105,9 @@ const Index = () => {
 
             <motion.h1 
               variants={itemVariants}
-              className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent"
             >
-              Ahmed Mostafa
+              HOLA 👋🏻, I'm Ahmed Mostafa
             </motion.h1>
             
             <motion.div
@@ -161,7 +166,6 @@ const Index = () => {
               className="flex justify-center space-x-6 mt-8"
             >
               {[
-                { icon: Github, href: "#", label: "GitHub" },
                 { icon: Linkedin, href: "#", label: "LinkedIn" },
                 { icon: Download, href: "#", label: "Resume" }
               ].map((social, index) => (

@@ -5,20 +5,53 @@ import { Badge } from "@/components/ui/badge";
 
 const About = () => {
   return (
-    <div className="min-h-screen pt-20 pb-16 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen pt-20 pb-16 px-4 relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&h=1080&fit=crop')",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/80 to-navy-950/90" />
+        <motion.div
+          animate={{ 
+            scale: [1, 1.1, 1],
+            opacity: [0.1, 0.2, 0.1]
+          }}
+          transition={{ 
+            duration: 8, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <motion.h1 
+            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent"
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             About Me
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-primary-blue max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             Passionate about creating innovative solutions and building exceptional digital experiences
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
@@ -29,34 +62,51 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-2"
           >
-            <Card className="bg-card border-border h-full">
-              <CardHeader>
+            <Card className="bg-card/80 backdrop-blur-xl border-border h-full relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+              <CardHeader className="relative z-10">
                 <CardTitle className="text-2xl font-semibold text-foreground">
                   My Story
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6 text-muted-foreground leading-relaxed">
-                <p>
+              <CardContent className="space-y-6 text-primary-blue leading-relaxed relative z-10">
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
                   My journey into software development began with a curiosity about how things work. 
                   What started as tinkering with HTML and CSS in college evolved into a passion for 
                   creating robust, scalable applications that solve real-world problems.
-                </p>
-                <p>
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                >
                   Over the past 5+ years, I've had the privilege of working with diverse teams and 
                   technologies, from startups to enterprise companies. This experience has taught me 
                   that great software is not just about clean code—it's about understanding user needs, 
                   collaborating effectively, and continuously learning.
-                </p>
-                <p>
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                >
                   I believe in the power of technology to transform businesses and improve lives. 
                   Whether I'm architecting a new system, mentoring a colleague, or optimizing performance, 
                   I approach every challenge with enthusiasm and a commitment to excellence.
-                </p>
-                <p>
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.0 }}
+                >
                   When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
                   projects, or sharing knowledge with the developer community. I'm always excited about 
                   the next challenge and the opportunity to create something meaningful.
-                </p>
+                </motion.p>
               </CardContent>
             </Card>
           </motion.div>
@@ -68,41 +118,56 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-8"
           >
-            {/* Profile Image Placeholder */}
-            <Card className="bg-card border-border">
-              <CardContent className="p-6 text-center">
-                <div className="w-40 h-40 mx-auto bg-navy-gradient rounded-full flex items-center justify-center text-6xl font-bold text-white mb-4">
-                  AM
-                </div>
+            {/* Profile Image */}
+            <Card className="bg-card/80 backdrop-blur-xl border-border relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+              <CardContent className="p-6 text-center relative z-10">
+                <motion.div
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ duration: 1.2, delay: 0.6 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-2 border-blue-500/30"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                    alt="Ahmed Mostafa"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
                 <h3 className="text-xl font-semibold text-foreground">Ahmed Mostafa</h3>
                 <p className="text-primary">Senior Software Engineer</p>
               </CardContent>
             </Card>
 
             {/* Quick Facts */}
-            <Card className="bg-card border-border">
-              <CardHeader>
+            <Card className="bg-card/80 backdrop-blur-xl border-border relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+              <CardHeader className="relative z-10">
                 <CardTitle className="text-lg font-semibold text-foreground">
                   Quick Facts
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Location</span>
-                  <span className="text-foreground">Cairo, Egypt</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Experience</span>
-                  <span className="text-foreground">5+ Years</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Focus</span>
-                  <span className="text-foreground">Full-Stack</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Available</span>
-                  <span className="text-primary">Open to opportunities</span>
-                </div>
+              <CardContent className="space-y-4 relative z-10">
+                {[
+                  { label: "Location", value: "Cairo, Egypt" },
+                  { label: "Experience", value: "5+ Years" },
+                  { label: "Focus", value: "Full-Stack" },
+                  { label: "Available", value: "Open to opportunities", highlight: true }
+                ].map((fact, index) => (
+                  <motion.div 
+                    key={fact.label}
+                    className="flex justify-between"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                  >
+                    <span className="text-primary-blue">{fact.label}</span>
+                    <span className={fact.highlight ? "text-primary" : "text-foreground"}>
+                      {fact.value}
+                    </span>
+                  </motion.div>
+                ))}
               </CardContent>
             </Card>
           </motion.div>
@@ -111,17 +176,19 @@ const About = () => {
         {/* Values & Philosophy */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-16"
         >
-          <Card className="bg-card border-border">
-            <CardHeader>
+          <Card className="bg-card/80 backdrop-blur-xl border-border relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+            <CardHeader className="relative z-10">
               <CardTitle className="text-2xl font-semibold text-center text-foreground">
                 Core Values & Philosophy
               </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative z-10">
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
                   {
@@ -148,15 +215,30 @@ const About = () => {
                   <motion.div
                     key={value.title}
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                    whileHover={{ 
+                      scale: 1.05, 
+                      y: -5,
+                      transition: { duration: 0.2 }
+                    }}
                     className="text-center p-4"
                   >
-                    <div className="text-4xl mb-3">{value.icon}</div>
+                    <motion.div 
+                      className="text-4xl mb-3"
+                      whileHover={{
+                        scale: 1.2,
+                        rotate: [0, -10, 10, 0],
+                        transition: { duration: 0.5 }
+                      }}
+                    >
+                      {value.icon}
+                    </motion.div>
                     <h3 className="text-lg font-semibold mb-2 text-primary">
                       {value.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-primary-blue text-sm leading-relaxed">
                       {value.description}
                     </p>
                   </motion.div>

@@ -67,15 +67,29 @@ const Skills = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
+              whileHover={{ 
+                scale: 1.02,
+                transition: { duration: 0.2 }
+              }}
             >
-              <Card className="h-full bg-card border-border hover:border-primary/50 transition-all duration-300">
-                <CardHeader>
+              <Card className="h-full bg-card/50 backdrop-blur-xl border-border hover:border-primary/50 transition-all duration-300 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+                <CardHeader className="relative z-10">
                   <CardTitle className="flex items-center text-2xl font-semibold text-foreground">
-                    <span className="text-3xl mr-3">{category.icon}</span>
+                    <motion.span 
+                      className="text-3xl mr-3"
+                      whileHover={{
+                        scale: 1.2,
+                        rotate: [0, -10, 10, -10, 0],
+                        transition: { duration: 0.5 }
+                      }}
+                    >
+                      {category.icon}
+                    </motion.span>
                     {category.category}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="relative z-10">
                   <div className="flex flex-wrap gap-3">
                     {category.skills.map((skill, skillIndex) => (
                       <motion.div
@@ -86,10 +100,15 @@ const Skills = () => {
                           duration: 0.3, 
                           delay: categoryIndex * 0.2 + skillIndex * 0.05 
                         }}
+                        whileHover={{
+                          scale: 1.1,
+                          y: -2,
+                          transition: { duration: 0.2 }
+                        }}
                       >
                         <Badge 
                           variant="secondary" 
-                          className="text-sm py-2 px-3 hover:bg-navy-gradient hover:text-white transition-all duration-200 cursor-default"
+                          className="text-sm py-2 px-3 bg-white/10 hover:bg-navy-gradient hover:text-white transition-all duration-200 cursor-default backdrop-blur-sm"
                         >
                           {skill}
                         </Badge>
@@ -109,13 +128,14 @@ const Skills = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-16"
         >
-          <Card className="bg-card border-border">
-            <CardHeader>
+          <Card className="bg-card/50 backdrop-blur-xl border-border relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+            <CardHeader className="relative z-10">
               <CardTitle className="text-2xl font-semibold text-center">
                 Core Competencies
               </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="relative z-10">
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 {[
                   { title: "Problem Solving", description: "Analytical thinking and debugging" },
@@ -128,6 +148,11 @@ const Skills = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+                    whileHover={{
+                      scale: 1.05,
+                      y: -5,
+                      transition: { duration: 0.2 }
+                    }}
                     className="p-4"
                   >
                     <h3 className="text-lg font-semibold mb-2 text-primary">
