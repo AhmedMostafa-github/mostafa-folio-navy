@@ -145,15 +145,32 @@ const Career = () => {
                 index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-4'
               }`}
             >
-              {/* Animated Timeline dot - moved outside */}
-              <motion.div 
-                className="absolute left-1 md:left-1/2 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform md:-translate-x-4 z-20 shadow-lg border-4 border-background"
-                initial={{ scale: 0, rotate: 180 }}
-                whileInView={{ scale: 1, rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-                whileHover={{ scale: 1.2 }}
-              />
+              {/* Bullet point above box (except for first) */}
+              {index > 0 && (
+                <motion.div 
+                  className="absolute left-1 md:left-1/2 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform md:-translate-x-4 z-10 shadow-lg border-4 border-background -top-10"
+                  initial={{ scale: 0, rotate: 180 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+                  whileHover={{ scale: 1.2 }}
+                />
+              )}
+
+              {/* Year label with bullet point behind it (except for first box) */}
+              {index > 0 && (
+                <motion.div
+                  className="flex justify-center mb-4 relative z-20"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
+                >
+                  <span className="text-sm font-semibold text-primary bg-background/80 backdrop-blur-sm px-2 py-1 rounded">
+                    {job.year}
+                  </span>
+                </motion.div>
+              )}
               
               <motion.div
                 whileHover={{ 
@@ -249,20 +266,34 @@ const Career = () => {
                     </div>
                   </CardContent>
                 </Card>
-                
-                {/* Year label under the box */}
+              </motion.div>
+
+              {/* Bullet point below box (except for last) */}
+              {index < careerHistory.length - 1 && (
+                <motion.div 
+                  className="absolute left-1 md:left-1/2 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform md:-translate-x-4 z-10 shadow-lg border-4 border-background -bottom-10"
+                  initial={{ scale: 0, rotate: 180 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+                  whileHover={{ scale: 1.2 }}
+                />
+              )}
+
+              {/* Year label below box (except for last) */}
+              {index < careerHistory.length - 1 && (
                 <motion.div
-                  className="flex justify-center mt-4"
+                  className="flex justify-center mt-4 relative z-20"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
                 >
                   <span className="text-sm font-semibold text-primary bg-background/80 backdrop-blur-sm px-2 py-1 rounded">
-                    {job.year}
+                    {careerHistory[index + 1]?.year}
                   </span>
                 </motion.div>
-              </motion.div>
+              )}
             </motion.div>
           ))}
         </div>
