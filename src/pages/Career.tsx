@@ -104,7 +104,7 @@ const Career = () => {
           className="text-center mb-16"
         >
           <motion.h1 
-            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"
+            className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent leading-tight"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -123,7 +123,7 @@ const Career = () => {
         </motion.div>
 
         <div className="relative">
-          {/* Animated Timeline line - now dashed */}
+          {/* Animated Timeline line - dashed */}
           <motion.div 
             className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-blue-500/50 transform md:-translate-x-0.5"
             style={{
@@ -145,27 +145,23 @@ const Career = () => {
                 index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-4'
               }`}
             >
-              {/* Bullet point above box (except for first) */}
-              {index > 0 && (
-                <motion.div 
-                  className="absolute left-1 md:left-1/2 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform md:-translate-x-4 z-10 shadow-lg border-4 border-background -top-10"
-                  initial={{ scale: 0, rotate: 180 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-                  whileHover={{ scale: 1.2 }}
-                />
-              )}
-
-              {/* Year label with bullet point behind it (except for first box) */}
+              {/* Year label with bullet point beside it (except for first box) */}
               {index > 0 && (
                 <motion.div
-                  className="flex justify-center mb-4 relative z-20"
+                  className="flex items-center justify-center mb-4 relative z-20"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
                 >
+                  <motion.div 
+                    className="w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg border-2 border-background mr-2"
+                    initial={{ scale: 0, rotate: 180 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+                    whileHover={{ scale: 1.3 }}
+                  />
                   <span className="text-sm font-semibold text-primary bg-background/80 backdrop-blur-sm px-2 py-1 rounded">
                     {job.year}
                   </span>
@@ -268,27 +264,23 @@ const Career = () => {
                 </Card>
               </motion.div>
 
-              {/* Bullet point below box (except for last) */}
-              {index < careerHistory.length - 1 && (
-                <motion.div 
-                  className="absolute left-1 md:left-1/2 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform md:-translate-x-4 z-10 shadow-lg border-4 border-background -bottom-10"
-                  initial={{ scale: 0, rotate: 180 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-                  whileHover={{ scale: 1.2 }}
-                />
-              )}
-
-              {/* Year label below box (except for last) */}
+              {/* Year label with bullet point beside it (except for last) */}
               {index < careerHistory.length - 1 && (
                 <motion.div
-                  className="flex justify-center mt-4 relative z-20"
+                  className="flex items-center justify-center mt-4 relative z-20"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
                 >
+                  <motion.div 
+                    className="w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg border-2 border-background mr-2"
+                    initial={{ scale: 0, rotate: 180 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+                    whileHover={{ scale: 1.3 }}
+                  />
                   <span className="text-sm font-semibold text-primary bg-background/80 backdrop-blur-sm px-2 py-1 rounded">
                     {careerHistory[index + 1]?.year}
                   </span>
