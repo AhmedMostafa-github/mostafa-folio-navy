@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -155,23 +154,6 @@ const Career = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
                 whileHover={{ scale: 1.2 }}
               />
-
-              {/* Year label beside bullet */}
-              <motion.div
-                className={`absolute top-2 z-20 ${
-                  index % 2 === 0 
-                    ? 'left-12 md:right-1/2 md:left-auto md:pr-6 md:text-right' 
-                    : 'left-12 md:left-1/2 md:pl-6'
-                }`}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
-              >
-                <span className="text-sm font-semibold text-primary bg-background/80 backdrop-blur-sm px-2 py-1 rounded">
-                  {job.year}
-                </span>
-              </motion.div>
               
               <motion.div
                 whileHover={{ 
@@ -179,7 +161,7 @@ const Career = () => {
                   y: -5,
                   transition: { duration: 0.2 }
                 }}
-                className="ml-8 md:ml-0 mt-8"
+                className="ml-8 md:ml-0"
               >
                 <Card className="bg-card/80 backdrop-blur-xl border-border hover:border-primary/50 transition-all duration-500 relative overflow-hidden shadow-xl">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
@@ -267,6 +249,19 @@ const Career = () => {
                     </div>
                   </CardContent>
                 </Card>
+                
+                {/* Year label under the box */}
+                <motion.div
+                  className="flex justify-center mt-4"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
+                >
+                  <span className="text-sm font-semibold text-primary bg-background/80 backdrop-blur-sm px-2 py-1 rounded">
+                    {job.year}
+                  </span>
+                </motion.div>
               </motion.div>
             </motion.div>
           ))}
