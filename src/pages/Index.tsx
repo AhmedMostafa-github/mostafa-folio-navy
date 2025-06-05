@@ -89,7 +89,7 @@ const Index = () => {
                     ease: "easeOut",
                     delay: 0.5,
                   }}
-                  className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 border-2 border-blue-500/30 card-glow animate-glow overflow-hidden "
+                  className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 border-2 border-blue-500/30 card-glow animate-glow overflow-hidden mt-1.5"
                 >
                   <motion.img
                     src="/ahmed.JPG"
