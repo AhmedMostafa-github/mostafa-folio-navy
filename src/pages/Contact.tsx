@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Github, Linkedin } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -49,9 +48,9 @@ const Contact = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-16 mt-12"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent leading-tight pb-6">
             Let's Connect
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -163,7 +162,7 @@ const Contact = () => {
                   <Mail className="w-5 h-5 text-primary" />
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground">ahmed.mostafa@email.com</p>
+                    <p className="text-foreground">ahmed-emam@outlook.com</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -196,17 +195,7 @@ const Contact = () => {
                   variant="outline" 
                   className="w-full justify-start hover:bg-navy-gradient hover:border-primary"
                 >
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                    <Github className="w-5 h-5 mr-3" />
-                    GitHub
-                  </a>
-                </Button>
-                <Button 
-                  asChild 
-                  variant="outline" 
-                  className="w-full justify-start hover:bg-navy-gradient hover:border-primary"
-                >
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://linkedin.com/in/ahmed-emam" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="w-5 h-5 mr-3" />
                     LinkedIn
                   </a>
@@ -216,7 +205,7 @@ const Contact = () => {
                   variant="outline" 
                   className="w-full justify-start hover:bg-navy-gradient hover:border-primary"
                 >
-                  <a href="mailto:ahmed.mostafa@email.com">
+                  <a href="mailto:ahmed-emam@outlook.com">
                     <Mail className="w-5 h-5 mr-3" />
                     Email Direct
                   </a>

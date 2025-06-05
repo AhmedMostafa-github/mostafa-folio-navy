@@ -85,7 +85,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-16 px-4 hero-gradient">
+    <div className="min-h-screen pt-20 pb-16 px-4 hero-gradient">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

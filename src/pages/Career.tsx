@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -128,9 +127,9 @@ const Career = () => {
         </motion.div>
 
         <div className="relative flex flex-col items-center">
-          {/* Animated Timeline line */}
+          {/* Animated Timeline line - visible on all screens */}
           <motion.div 
-            className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-blue-500/50 transform -translate-x-0.5 hidden md:block"
+            className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-blue-500/50 transform -translate-x-0.5"
             style={{
               backgroundImage: "repeating-linear-gradient(to bottom, transparent, transparent 10px, rgba(51, 153, 255, 0.5) 10px, rgba(51, 153, 255, 0.5) 20px)"
             }}
@@ -148,7 +147,7 @@ const Career = () => {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className="relative mb-20 w-full max-w-4xl"
             >
-              {/* Year label above the box (end year) - only show for first job or when year changes */}
+              {/* Year label above the box (end year) - show for first job and when year changes */}
               {(index === 0 || careerHistory[index - 1]?.endYear !== job.endYear) && (
                 <motion.div
                   className="flex items-center justify-center mb-6 relative z-20"
@@ -181,7 +180,7 @@ const Career = () => {
                     y: -5,
                     transition: { duration: 0.2 }
                   }}
-                  className="w-full max-w-2xl mx-4"
+                  className="w-full max-w-3xl mx-4"
                 >
                   <Card className="bg-card/80 backdrop-blur-xl border-border hover:border-primary/50 transition-all duration-500 relative overflow-hidden shadow-xl">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
@@ -272,31 +271,29 @@ const Career = () => {
                 </motion.div>
               </div>
 
-              {/* Year label below the box (start year) - show for all except last job */}
-              {index < careerHistory.length - 1 && (
-                <motion.div
-                  className="flex items-center justify-center mt-6 relative z-20"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
+              {/* Year label below the box (start year) - show for all jobs including first one */}
+              <motion.div
+                className="flex items-center justify-center mt-6 relative z-20"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 + 0.7 }}
+              >
+                <motion.div 
+                  className="w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full shadow-lg border border-background mr-2"
+                  initial={{ scale: 0, rotate: -180 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 + 0.7 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
+                  whileHover={{ scale: 1.3 }}
+                />
+                <motion.span 
+                  className="text-sm font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 px-3 py-1 rounded-full shadow-lg border border-purple-500/30"
+                  whileHover={{ scale: 1.05 }}
                 >
-                  <motion.div 
-                    className="w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full shadow-lg border border-background mr-2"
-                    initial={{ scale: 0, rotate: -180 }}
-                    whileInView={{ scale: 1, rotate: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
-                    whileHover={{ scale: 1.3 }}
-                  />
-                  <motion.span 
-                    className="text-sm font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 px-3 py-1 rounded-full shadow-lg border border-purple-500/30"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {job.startYear}
-                  </motion.span>
-                </motion.div>
-              )}
+                  {job.startYear}
+                </motion.span>
+              </motion.div>
             </motion.div>
           ))}
         </div>
