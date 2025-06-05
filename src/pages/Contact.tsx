@@ -13,16 +13,18 @@ const Contact = () => {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -54,8 +56,8 @@ const Contact = () => {
             Let's Connect
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Have a project in mind or want to discuss opportunities? 
-            I'd love to hear from you. Let's build something amazing together.
+            Have a project in mind or want to discuss opportunities? I'd love to
+            hear from you. Let's build something amazing together.
           </p>
         </motion.div>
 
@@ -77,7 +79,9 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name" className="text-foreground">Name</Label>
+                      <Label htmlFor="name" className="text-foreground">
+                        Name
+                      </Label>
                       <Input
                         id="name"
                         name="name"
@@ -89,7 +93,9 @@ const Contact = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-foreground">Email</Label>
+                      <Label htmlFor="email" className="text-foreground">
+                        Email
+                      </Label>
                       <Input
                         id="email"
                         name="email"
@@ -102,9 +108,11 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
-                    <Label htmlFor="subject" className="text-foreground">Subject</Label>
+                    <Label htmlFor="subject" className="text-foreground">
+                      Subject
+                    </Label>
                     <Input
                       id="subject"
                       name="subject"
@@ -115,9 +123,11 @@ const Contact = () => {
                       className="bg-background border-border"
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-foreground">Message</Label>
+                    <Label htmlFor="message" className="text-foreground">
+                      Message
+                    </Label>
                     <Textarea
                       id="message"
                       name="message"
@@ -129,9 +139,9 @@ const Contact = () => {
                       className="bg-background border-border resize-none"
                     />
                   </div>
-                  
-                  <Button 
-                    type="submit" 
+
+                  <Button
+                    type="submit"
                     disabled={isSubmitting}
                     className="w-full bg-navy-gradient hover:glow-effect"
                     size="lg"
@@ -175,7 +185,9 @@ const Contact = () => {
                 <div className="flex items-center gap-3">
                   <span className="text-primary text-lg">🕒</span>
                   <div>
-                    <p className="text-sm text-muted-foreground">Response Time</p>
+                    <p className="text-sm text-muted-foreground">
+                      Response Time
+                    </p>
                     <p className="text-foreground">Within 24 hours</p>
                   </div>
                 </div>
@@ -190,19 +202,23 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <Button 
-                  asChild 
-                  variant="outline" 
+                <Button
+                  asChild
+                  variant="outline"
                   className="w-full justify-start hover:bg-navy-gradient hover:border-primary"
                 >
-                  <a href="https://linkedin.com/in/ahmed-emam" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://www.linkedin.com/in/ahmedm0stafa/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Linkedin className="w-5 h-5 mr-3" />
                     LinkedIn
                   </a>
                 </Button>
-                <Button 
-                  asChild 
-                  variant="outline" 
+                <Button
+                  asChild
+                  variant="outline"
                   className="w-full justify-start hover:bg-navy-gradient hover:border-primary"
                 >
                   <a href="mailto:ahmed-emam@outlook.com">
@@ -223,10 +239,13 @@ const Contact = () => {
               <CardContent>
                 <div className="flex items-center gap-2 mb-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-foreground font-medium">Available for opportunities</span>
+                  <span className="text-foreground font-medium">
+                    Available for opportunities
+                  </span>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Open to full-time positions, freelance projects, and consulting opportunities.
+                  Open to full-time positions, freelance projects, and
+                  consulting opportunities.
                 </p>
               </CardContent>
             </Card>

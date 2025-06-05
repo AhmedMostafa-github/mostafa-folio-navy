@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -11,9 +10,9 @@ const Index = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -23,15 +22,15 @@ const Index = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/resume.pdf'; // You'll need to add your resume file to the public folder
-    link.download = 'Ahmed_Mostafa_Resume.pdf';
+    const link = document.createElement("a");
+    link.href = "/resume.pdf"; // You'll need to add your resume file to the public folder
+    link.download = "Ahmed_Mostafa_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -44,26 +43,26 @@ const Index = () => {
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <motion.div
-            animate={{ 
+            animate={{
               scale: [1, 1.2, 1],
-              rotate: [0, 180, 360]
+              rotate: [0, 180, 360],
             }}
-            transition={{ 
-              duration: 20, 
-              repeat: Infinity, 
-              ease: "linear" 
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
             }}
             className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-xl"
           />
           <motion.div
-            animate={{ 
+            animate={{
               scale: [1.2, 1, 1.2],
-              rotate: [360, 180, 0]
+              rotate: [360, 180, 0],
             }}
-            transition={{ 
-              duration: 15, 
-              repeat: Infinity, 
-              ease: "linear" 
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "linear",
             }}
             className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-xl"
           />
@@ -81,24 +80,21 @@ const Index = () => {
               variants={itemVariants}
               className="flex justify-center mb-8"
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="relative"
-              >
+              <motion.div whileHover={{ scale: 1.05 }} className="relative">
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ scale: 1, rotate: 0 }}
-                  transition={{ 
-                    duration: 1.2, 
+                  transition={{
+                    duration: 1.2,
                     ease: "easeOut",
-                    delay: 0.5
+                    delay: 0.5,
                   }}
-                  className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 border-2 border-blue-500/30 card-glow animate-glow overflow-hidden"
+                  className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 border-2 border-blue-500/30 card-glow animate-glow overflow-hidden "
                 >
                   <motion.img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                    src="/ahmed.JPG"
                     alt="Ahmed Mostafa"
-                    className="w-full h-full object-cover rounded-full"
+                    className="w-full h-full object-cover rounded-full "
                     initial={{ scale: 1.2, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 1.5, delay: 0.8 }}
@@ -112,13 +108,13 @@ const Index = () => {
               </motion.div>
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               variants={itemVariants}
               className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent pb-2"
             >
               HOLA 👋🏻, I'm Ahmed Mostafa
             </motion.h1>
-            
+
             <motion.div
               variants={itemVariants}
               className="text-2xl md:text-3xl font-medium text-glow"
@@ -128,18 +124,19 @@ const Index = () => {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="text-primary-blue"
               >
-                Senior Software Engineer
+                Senior Mobile Engineer
               </motion.span>
             </motion.div>
-            
+
             <motion.p
               variants={itemVariants}
               className="text-lg md:text-xl text-primary-blue max-w-3xl mx-auto leading-relaxed"
             >
-              Crafting exceptional digital experiences with modern technologies. 
-              Specialized in full-stack development, scalable architectures, and innovative solutions.
+              Crafting exceptional digital experiences with modern technologies.
+              Specialized in full-stack development, scalable architectures, and
+              innovative solutions.
             </motion.p>
-            
+
             <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12"
@@ -148,19 +145,28 @@ const Index = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button asChild size="lg" className="bg-active-tab hover:glow-effect transition-all duration-300">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-active-tab hover:glow-effect transition-all duration-300"
+                >
                   <Link to="/projects">
                     <Rocket className="w-5 h-5 mr-2" />
                     View Projects
                   </Link>
                 </Button>
               </motion.div>
-              
+
               <motion.div
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button asChild variant="outline" size="lg" className="border-blue-500/50 text-primary-blue hover:bg-blue-500/10">
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-blue-500/50 text-primary-blue hover:bg-blue-500/10"
+                >
                   <Link to="/contact">
                     <Mail className="w-5 h-5 mr-2" />
                     Contact Me
@@ -195,16 +201,16 @@ const Index = () => {
             </motion.div>
           </motion.div>
         </div>
-        
+
         {/* Floating Elements */}
-        <motion.div 
+        <motion.div
           className="absolute top-20 left-10 opacity-30"
           animate={{ y: [-10, 10, -10], rotate: [0, 5, -5, 0] }}
           transition={{ duration: 6, repeat: Infinity }}
         >
           <Code className="w-12 h-12 text-primary-blue" />
         </motion.div>
-        <motion.div 
+        <motion.div
           className="absolute bottom-20 right-10 opacity-30"
           animate={{ y: [10, -10, 10], rotate: [0, -5, 5, 0] }}
           transition={{ duration: 4, repeat: Infinity }}
@@ -214,7 +220,7 @@ const Index = () => {
       </section>
 
       {/* Quick Info Section */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -233,8 +239,9 @@ const Index = () => {
               Building the Future
             </h2>
             <p className="text-xl text-primary-blue max-w-3xl mx-auto">
-              With years of experience in software development, I focus on creating 
-              scalable solutions that drive business growth and user satisfaction.
+              With years of experience in software development, I focus on
+              creating scalable solutions that drive business growth and user
+              satisfaction.
             </p>
           </motion.div>
 
@@ -243,40 +250,44 @@ const Index = () => {
               {
                 title: "5+ Years Experience",
                 description: "Full-stack development across various industries",
-                icon: "📈"
+                icon: "📈",
               },
               {
                 title: "20+ Projects",
-                description: "Successfully delivered projects from concept to production",
-                icon: "🚀"
+                description:
+                  "Successfully delivered projects from concept to production",
+                icon: "🚀",
               },
               {
                 title: "Modern Tech Stack",
-                description: "Expertise in React, Node.js, Python, and cloud technologies",
-                icon: "⚡"
-              }
+                description:
+                  "Expertise in React, Node.js, Python, and cloud technologies",
+                icon: "⚡",
+              },
             ].map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ 
-                  scale: 1.05, 
+                whileHover={{
+                  scale: 1.05,
                   y: -5,
-                  transition: { duration: 0.2 }
+                  transition: { duration: 0.2 },
                 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
                 className="text-center p-8 rounded-xl bg-card border border-border hover:border-blue-500/50 transition-all duration-300 card-glow"
               >
-                <motion.div 
+                <motion.div
                   className="text-5xl mb-6"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   transition={{ duration: 0.2 }}
                 >
                   {item.icon}
                 </motion.div>
-                <h3 className="text-xl font-semibold mb-4 text-white">{item.title}</h3>
+                <h3 className="text-xl font-semibold mb-4 text-white">
+                  {item.title}
+                </h3>
                 <p className="text-primary-blue">{item.description}</p>
               </motion.div>
             ))}
