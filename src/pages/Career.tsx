@@ -149,7 +149,7 @@ const Career = () => {
               className="relative mb-20"
             >
               {/* Year label above the box (end year) - only show for first job or when year changes */}
-              {index === 0 || careerHistory[index - 1]?.endYear !== job.endYear ? (
+              {(index === 0 || careerHistory[index - 1]?.endYear !== job.endYear) && (
                 <motion.div
                   className="flex items-center justify-center mb-6 relative z-20"
                   initial={{ opacity: 0 }}
