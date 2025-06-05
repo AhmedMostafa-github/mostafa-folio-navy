@@ -55,7 +55,7 @@ const Contact = () => {
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent leading-tight pb-6">
             Let's Connect
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-[#D7E7F9] text-muted-foreground max-w-3xl mx-auto">
             Have a project in mind or want to discuss opportunities? I'd love to
             hear from you. Let's build something amazing together.
           </p>

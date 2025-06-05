@@ -130,7 +130,7 @@ const Index = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-primary-blue max-w-3xl mx-auto leading-relaxed"
+              className="text-lg text-[#D7E7F9] md:text-xl text-primary-blue max-w-3xl mx-auto leading-relaxed"
             >
               Crafting exceptional digital experiences with modern technologies.
               Specialized in full-stack development, scalable architectures, and

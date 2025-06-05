@@ -37,7 +37,7 @@ const About = () => {
             About Me
           </motion.h1>
           <motion.p
-            className="text-xl text-primary-blue max-w-3xl mx-auto"
+            className="text-xl text-[#D7E7F9] text-primary-blue max-w-3xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
