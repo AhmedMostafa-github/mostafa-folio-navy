@@ -28,6 +28,15 @@ const Index = () => {
     }
   };
 
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // You'll need to add your resume file to the public folder
+    link.download = 'Ahmed_Mostafa_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="min-h-screen pt-16 hero-gradient">
       {/* Hero Section */}
@@ -105,7 +114,7 @@ const Index = () => {
 
             <motion.h1 
               variants={itemVariants}
-              className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent pb-2"
             >
               HOLA 👋🏻, I'm Ahmed Mostafa
             </motion.h1>
@@ -165,20 +174,24 @@ const Index = () => {
               variants={itemVariants}
               className="flex justify-center space-x-6 mt-8"
             >
-              {[
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Download, href: "#", label: "Resume" }
-              ].map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="p-3 rounded-full bg-card border border-blue-500/30 text-primary-blue hover:text-white hover:bg-blue-500/20 transition-all duration-300"
-                >
-                  <social.icon className="w-5 h-5" />
-                </motion.a>
-              ))}
+              <motion.a
+                href="https://www.linkedin.com/in/ahmedm0stafa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2, y: -2 }}
+                whileTap={{ scale: 0.9 }}
+                className="p-3 rounded-full bg-card border border-blue-500/30 text-primary-blue hover:text-white hover:bg-blue-500/20 transition-all duration-300"
+              >
+                <Linkedin className="w-5 h-5" />
+              </motion.a>
+              <motion.button
+                onClick={handleDownload}
+                whileHover={{ scale: 1.2, y: -2 }}
+                whileTap={{ scale: 0.9 }}
+                className="p-3 rounded-full bg-card border border-blue-500/30 text-primary-blue hover:text-white hover:bg-blue-500/20 transition-all duration-300"
+              >
+                <Download className="w-5 h-5" />
+              </motion.button>
             </motion.div>
           </motion.div>
         </div>
@@ -216,7 +229,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent pb-2">
               Building the Future
             </h2>
             <p className="text-xl text-primary-blue max-w-3xl mx-auto">

@@ -51,7 +51,7 @@ const Skills = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent pb-2">
             Skills & Technologies
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -79,24 +79,10 @@ const Skills = () => {
                   <CardTitle className="flex items-center text-2xl font-semibold text-foreground">
                     <motion.span 
                       className="text-3xl mr-3"
-                      animate={{
-                        scale: [1, 1.2, 1],
-                        rotate: [0, -10, 10, -10, 0],
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        ease: "easeInOut",
-                        times: [0, 0.2, 0.5, 0.8, 1],
-                        repeat: 0,
-                        repeatDelay: 0
-                      }}
-                      style={{
-                        animation: "none"
-                      }}
                       whileHover={{
-                        scale: 1.2,
-                        rotate: [0, -10, 10, -10, 0],
-                        transition: { duration: 0.5 }
+                        scale: [1, 1.2, 1.1, 1.3, 1],
+                        rotate: [0, -10, 10, -5, 0],
+                        transition: { duration: 0.6 }
                       }}
                     >
                       {category.icon}

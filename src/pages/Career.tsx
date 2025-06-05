@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,7 +9,8 @@ const careerHistory = [
     company: "TechCorp Solutions",
     position: "Senior Full-Stack Developer",
     duration: "2022 - Present",
-    year: "2022",
+    startYear: "2022",
+    endYear: "Present",
     logo: "🚀",
     description: "Leading development of enterprise-scale applications with React, Node.js, and cloud technologies. Mentoring junior developers and architecting scalable solutions.",
     achievements: [
@@ -23,7 +25,8 @@ const careerHistory = [
     company: "Digital Innovations Inc",
     position: "Full-Stack Developer",
     duration: "2020 - 2022",
-    year: "2020",
+    startYear: "2020",
+    endYear: "2022",
     logo: "💡",
     description: "Developed and maintained web applications for various clients. Worked with cross-functional teams to deliver high-quality software solutions.",
     achievements: [
@@ -38,7 +41,8 @@ const careerHistory = [
     company: "StartupTech",
     position: "Frontend Developer",
     duration: "2019 - 2020",
-    year: "2019",
+    startYear: "2019",
+    endYear: "2020",
     logo: "⭐",
     description: "Focused on frontend development using modern JavaScript frameworks. Collaborated closely with UX/UI designers to create intuitive user interfaces.",
     achievements: [
@@ -53,7 +57,8 @@ const careerHistory = [
     company: "WebDev Agency",
     position: "Junior Developer",
     duration: "2018 - 2019",
-    year: "2018",
+    startYear: "2018",
+    endYear: "2019",
     logo: "🌱",
     description: "Started my professional journey learning full-stack development. Worked on various client projects and gained experience with different technologies.",
     achievements: [
@@ -104,7 +109,7 @@ const Career = () => {
           className="text-center mb-16"
         >
           <motion.h1 
-            className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent leading-tight"
+            className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent leading-tight pb-2"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -123,9 +128,9 @@ const Career = () => {
         </motion.div>
 
         <div className="relative">
-          {/* Animated Timeline line - dashed */}
+          {/* Animated Timeline line */}
           <motion.div 
-            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-blue-500/50 transform md:-translate-x-0.5"
+            className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-blue-500/50 transform -translate-x-0.5 hidden md:block"
             style={{
               backgroundImage: "repeating-linear-gradient(to bottom, transparent, transparent 10px, rgba(51, 153, 255, 0.5) 10px, rgba(51, 153, 255, 0.5) 20px)"
             }}
@@ -141,30 +146,31 @@ const Career = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`relative mb-20 ${
-                index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-4'
-              }`}
+              className="relative mb-20"
             >
-              {/* Year label with bullet point beside it (except for first box) */}
-              {index > 0 && (
+              {/* Year label above the box (end year) */}
+              {index === 0 || careerHistory[index - 1]?.endYear !== job.endYear ? (
                 <motion.div
-                  className="flex items-center justify-center mb-4 relative z-20"
+                  className="flex items-center justify-center mb-6 relative z-20"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
                 >
                   <motion.div 
-                    className="w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg border-2 border-background mr-2"
+                    className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg border-2 border-background mr-3"
                     initial={{ scale: 0, rotate: 180 }}
                     whileInView={{ scale: 1, rotate: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-                    whileHover={{ scale: 1.3 }}
+                    whileHover={{ scale: 1.5 }}
                   />
-                  <span className="text-sm font-semibold text-primary bg-background/80 backdrop-blur-sm px-2 py-1 rounded">
-                    {job.year}
-                  </span>
+                  <motion.span 
+                    className="text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 rounded-full shadow-lg border border-blue-500/30"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {job.endYear}
+                  </motion.span>
                 </motion.div>
               )}
               
@@ -174,7 +180,9 @@ const Career = () => {
                   y: -5,
                   transition: { duration: 0.2 }
                 }}
-                className="ml-8 md:ml-0"
+                className={`${
+                  index % 2 === 0 ? 'md:pr-8 md:mr-8' : 'md:pl-8 md:ml-8'
+                } mx-4 md:mx-0`}
               >
                 <Card className="bg-card/80 backdrop-blur-xl border-border hover:border-primary/50 transition-all duration-500 relative overflow-hidden shadow-xl">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
@@ -264,26 +272,29 @@ const Career = () => {
                 </Card>
               </motion.div>
 
-              {/* Year label with bullet point beside it (except for last) */}
+              {/* Year label below the box (start year) */}
               {index < careerHistory.length - 1 && (
                 <motion.div
-                  className="flex items-center justify-center mt-4 relative z-20"
+                  className="flex items-center justify-center mt-6 relative z-20"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 + 0.7 }}
                 >
                   <motion.div 
-                    className="w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg border-2 border-background mr-2"
-                    initial={{ scale: 0, rotate: 180 }}
+                    className="w-3 h-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full shadow-lg border-2 border-background mr-3"
+                    initial={{ scale: 0, rotate: -180 }}
                     whileInView={{ scale: 1, rotate: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-                    whileHover={{ scale: 1.3 }}
+                    transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
+                    whileHover={{ scale: 1.5 }}
                   />
-                  <span className="text-sm font-semibold text-primary bg-background/80 backdrop-blur-sm px-2 py-1 rounded">
-                    {careerHistory[index + 1]?.year}
-                  </span>
+                  <motion.span 
+                    className="text-sm font-bold text-white bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-2 rounded-full shadow-lg border border-purple-500/30"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {job.startYear}
+                  </motion.span>
                 </motion.div>
               )}
             </motion.div>
