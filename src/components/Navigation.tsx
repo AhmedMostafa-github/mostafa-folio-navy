@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "About", path: "/about" },
-  { name: "Skills", path: "/skills" },
   { name: "Projects", path: "/projects" },
+  { name: "Skills", path: "/skills" },
   { name: "Career", path: "/career" },
+  { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -26,7 +26,6 @@ export const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo on the left */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -38,8 +37,8 @@ export const Navigation = () => {
             </Link>
           </motion.div>
 
-          {/* Centered Desktop Navigation */}
-          <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-1">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-1">
             {navItems.map((item) => (
               <motion.div
                 key={item.path}
