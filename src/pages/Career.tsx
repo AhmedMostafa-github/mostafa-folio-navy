@@ -106,7 +106,7 @@ const Career = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-16 mt-12"
         >
           <motion.h1 
             className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent leading-tight pb-6"
@@ -127,7 +127,7 @@ const Career = () => {
           </motion.p>
         </motion.div>
 
-        <div className="relative">
+        <div className="relative flex flex-col items-center">
           {/* Animated Timeline line */}
           <motion.div 
             className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-blue-500/50 transform -translate-x-0.5 hidden md:block"
@@ -146,7 +146,7 @@ const Career = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="relative mb-20"
+              className="relative mb-20 w-full max-w-4xl"
             >
               {/* Year label above the box (end year) - only show for first job or when year changes */}
               {(index === 0 || careerHistory[index - 1]?.endYear !== job.endYear) && (
@@ -174,103 +174,103 @@ const Career = () => {
                 </motion.div>
               )}
               
-              <motion.div
-                whileHover={{ 
-                  scale: 1.02, 
-                  y: -5,
-                  transition: { duration: 0.2 }
-                }}
-                className={`${
-                  index % 2 === 0 ? 'md:pr-8 md:mr-8' : 'md:pl-8 md:ml-8'
-                } mx-4 md:mx-0`}
-              >
-                <Card className="bg-card/80 backdrop-blur-xl border-border hover:border-primary/50 transition-all duration-500 relative overflow-hidden shadow-xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0"
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                  
-                  <CardHeader className="relative z-10">
-                    <div className="flex items-center gap-3 mb-2">
-                      <motion.span 
-                        className="text-4xl"
-                        whileHover={{
-                          scale: 1.2,
-                          rotate: [0, -10, 10, 0],
-                          transition: { duration: 0.5 }
-                        }}
-                      >
-                        {job.logo}
-                      </motion.span>
-                      <div className="flex-1">
-                        <CardTitle className="text-xl font-semibold text-foreground">
-                          {job.position}
-                        </CardTitle>
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-1">
-                          <span className="text-lg font-medium text-primary">
-                            {job.company}
-                          </span>
-                          <Badge variant="outline" className="w-fit bg-blue-500/10 border-blue-500/30">
-                            {job.duration}
-                          </Badge>
+              <div className="flex justify-center">
+                <motion.div
+                  whileHover={{ 
+                    scale: 1.02, 
+                    y: -5,
+                    transition: { duration: 0.2 }
+                  }}
+                  className="w-full max-w-2xl mx-4"
+                >
+                  <Card className="bg-card/80 backdrop-blur-xl border-border hover:border-primary/50 transition-all duration-500 relative overflow-hidden shadow-xl">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0"
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                    
+                    <CardHeader className="relative z-10">
+                      <div className="flex items-center gap-3 mb-2">
+                        <motion.span 
+                          className="text-4xl"
+                          whileHover={{
+                            scale: 1.2,
+                            rotate: [0, -10, 10, 0],
+                            transition: { duration: 0.5 }
+                          }}
+                        >
+                          {job.logo}
+                        </motion.span>
+                        <div className="flex-1">
+                          <CardTitle className="text-xl font-semibold text-foreground">
+                            {job.position}
+                          </CardTitle>
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-1">
+                            <span className="text-lg font-medium text-primary">
+                              {job.company}
+                            </span>
+                            <Badge variant="outline" className="w-fit bg-blue-500/10 border-blue-500/30">
+                              {job.duration}
+                            </Badge>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </CardHeader>
-                  
-                  <CardContent className="space-y-6 relative z-10">
-                    <p className="text-primary-blue leading-relaxed">
-                      {job.description}
-                    </p>
+                    </CardHeader>
                     
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-3">Key Achievements:</h4>
-                      <ul className="space-y-2">
-                        {job.achievements.map((achievement, achievementIndex) => (
-                          <motion.li 
-                            key={achievementIndex}
-                            className="text-primary-blue flex items-start gap-3"
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.2 + achievementIndex * 0.1 }}
-                          >
-                            <motion.span 
-                              className="text-primary mt-1.5 text-sm"
-                              whileHover={{ scale: 1.2 }}
+                    <CardContent className="space-y-6 relative z-10">
+                      <p className="text-primary-blue leading-relaxed">
+                        {job.description}
+                      </p>
+                      
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-3">Key Achievements:</h4>
+                        <ul className="space-y-2">
+                          {job.achievements.map((achievement, achievementIndex) => (
+                            <motion.li 
+                              key={achievementIndex}
+                              className="text-primary-blue flex items-start gap-3"
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: index * 0.2 + achievementIndex * 0.1 }}
                             >
-                              ▸
-                            </motion.span>
-                            {achievement}
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-3">Technologies:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {job.technologies.map((tech, techIndex) => (
-                          <motion.div
-                            key={tech}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.2 + techIndex * 0.05 }}
-                            whileHover={{ scale: 1.1, y: -2 }}
-                          >
-                            <Badge variant="secondary" className="text-xs bg-white/10 hover:bg-blue-500/20 transition-colors duration-200">
-                              {tech}
-                            </Badge>
-                          </motion.div>
-                        ))}
+                              <motion.span 
+                                className="text-primary mt-1.5 text-sm"
+                                whileHover={{ scale: 1.2 }}
+                              >
+                                •
+                              </motion.span>
+                              {achievement}
+                            </motion.li>
+                          ))}
+                        </ul>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                      
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-3">Technologies:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {job.technologies.map((tech, techIndex) => (
+                            <motion.div
+                              key={tech}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: index * 0.2 + techIndex * 0.05 }}
+                              whileHover={{ scale: 1.1, y: -2 }}
+                            >
+                              <Badge variant="secondary" className="text-xs bg-white/10 hover:bg-blue-500/20 transition-colors duration-200">
+                                {tech}
+                              </Badge>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </div>
 
               {/* Year label below the box (start year) - show for all except last job */}
               {index < careerHistory.length - 1 && (

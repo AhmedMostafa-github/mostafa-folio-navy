@@ -91,13 +91,13 @@ const Projects = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-16 mt-12"
         >
           <motion.h1 
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent pb-2"
+            className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6"
           >
             Projects
           </motion.h1>
@@ -159,7 +159,7 @@ const Projects = () => {
                 </CardHeader>
                 
                 <CardContent className="space-y-4 flex-grow flex flex-col">
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 flex-grow">
                     {project.tags.map((tag, tagIndex) => (
                       <motion.div
                         key={tag}
