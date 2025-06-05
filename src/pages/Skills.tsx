@@ -90,7 +90,7 @@ const Skills = () => {
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent leading-tight pb-6">
             Skills & Technologies
           </h1>
-          <p className="text-xl text-[#DADADA] text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-[#D7E7F9] text-muted-foreground max-w-3xl mx-auto">
             A comprehensive overview of the technologies, frameworks, and tools
             I use to build scalable and efficient solutions across the full
             development stack.

@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,7 +43,7 @@
 
   body {
     @apply bg-background text-foreground font-sans;
-    background-color: #0D1117;
+    background-color: #0d1117;
   }
 
   html {
@@ -56,7 +55,7 @@
   .glow-effect {
     box-shadow: 0 0 30px rgba(51, 153, 255, 0.4);
   }
-  
+
   .text-glow {
     text-shadow: 0 0 15px rgba(51, 153, 255, 0.6);
   }
@@ -66,15 +65,15 @@
   }
 
   .hero-gradient {
-    background: linear-gradient(135deg, #0D1117 0%, #161b22 50%, #001F3F 100%);
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #001f3f 100%);
   }
 
   .text-primary-blue {
-    color: #66B2FF;
+    color: #66b2ff;
   }
 
   .bg-active-tab {
-    background: linear-gradient(135deg, #3399FF 0%, #001F3F 100%);
+    background: linear-gradient(135deg, #3399ff 0%, #001f3f 100%);
   }
 
   .modern-nav {
@@ -94,12 +93,21 @@
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
   }
 
   @keyframes glow {
-    from { box-shadow: 0 0 20px rgba(51, 153, 255, 0.2); }
-    to { box-shadow: 0 0 30px rgba(51, 153, 255, 0.4); }
+    from {
+      box-shadow: 0 0 20px rgba(51, 153, 255, 0.2);
+    }
+    to {
+      box-shadow: 0 0 30px rgba(51, 153, 255, 0.4);
+    }
   }
 }

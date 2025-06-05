@@ -73,7 +73,7 @@ const About = () => {
                   My Story
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6 text-[#DADADA] leading-relaxed relative z-10">
+              <CardContent className="space-y-6 text-[#D7E7F9] leading-relaxed relative z-10">
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
