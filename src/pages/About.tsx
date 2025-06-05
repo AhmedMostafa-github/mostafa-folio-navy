@@ -23,6 +23,7 @@ const About = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -48,108 +49,92 @@ const About = () => {
           </motion.p>
         </motion.div>
 
-        {/* Main content grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {/* Profile section */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-1"
-          >
-            <Card className="bg-card/80 backdrop-blur-xl border-border relative overflow-hidden h-full">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
-              <CardContent className="p-8 text-center relative z-10 flex flex-col justify-center h-full">
+        {/* Introduction Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-16"
+        >
+          <Card className="bg-card/80 backdrop-blur-xl border-border relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
+            <CardContent className="p-8 relative z-10">
+              <div className="grid lg:grid-cols-2 gap-8 items-center">
+                {/* Profile Image */}
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ scale: 1, rotate: 0 }}
                   transition={{ duration: 1.2, delay: 0.6 }}
                   whileHover={{ scale: 1.05 }}
-                  className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-blue-500/30"
+                  className="flex justify-center lg:justify-start"
                 >
-                  <img
-                    src="/ahmed.JPG"
-                    alt="Ahmed Mostafa"
-                    className="w-full h-full object-cover"
-                  />
+                  <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-blue-500/30">
+                    <img
+                      src="/ahmed.JPG"
+                      alt="Ahmed Mostafa"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </motion.div>
-                <h3 className="text-2xl font-bold text-foreground mb-2">
-                  Ahmed Mostafa
-                </h3>
-                <p className="text-primary mb-4">Senior Software Engineer</p>
-                <div className="space-y-3 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-primary-blue">Location</span>
-                    <span className="text-foreground">Cairo, Egypt</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-primary-blue">Experience</span>
-                    <span className="text-foreground">5+ Years</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-primary-blue">Focus</span>
-                    <span className="text-foreground">Full-Stack</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-primary-blue">Available</span>
-                    <span className="text-primary">Open to opportunities</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
 
-          {/* Story section */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="lg:col-span-2"
-          >
-            <Card className="bg-card/80 backdrop-blur-xl border-border h-full relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
-              <CardHeader className="relative z-10">
-                <CardTitle className="text-2xl font-semibold text-foreground">
-                  My Journey
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6 text-[#D7E7F9] leading-relaxed relative z-10">
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                >
-                  My passion for software development ignited during my college years, 
-                  where curiosity about technology transformed into a dedication to creating 
-                  impactful solutions. What began as experimentation with web technologies 
-                  has evolved into a comprehensive expertise in full-stack development.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                >
-                  Throughout my 5+ year career, I've had the privilege of collaborating 
-                  with international teams across six countries, delivering solutions 
-                  for diverse markets from startups to enterprise organizations. This 
-                  global experience has shaped my understanding of cross-cultural 
-                  development and scalable architecture.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.0 }}
-                >
-                  I believe technology should bridge gaps and solve real-world challenges. 
-                  Whether architecting complex systems, optimizing performance, or mentoring 
-                  fellow developers, I approach every project with innovation and precision. 
-                  My commitment extends beyond code to fostering collaborative environments 
-                  where ideas flourish.
-                </motion.p>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
+                {/* About Text */}
+                <div className="space-y-6">
+                  <motion.h2
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    className="text-3xl font-bold text-foreground"
+                  >
+                    Ahmed Mostafa
+                  </motion.h2>
+                  <motion.p
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 1.0 }}
+                    className="text-primary mb-4"
+                  >
+                    Senior Software Engineer
+                  </motion.p>
+                  <motion.div
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 1.2 }}
+                    className="space-y-4 text-[#D7E7F9] leading-relaxed"
+                  >
+                    <p>
+                      My passion for software development ignited during my college years, 
+                      where curiosity about technology transformed into a dedication to creating 
+                      impactful solutions. What began as experimentation with web technologies 
+                      has evolved into comprehensive expertise in full-stack development.
+                    </p>
+                    <p>
+                      Throughout my 5+ year career, I've had the privilege of collaborating 
+                      with international teams across six countries, delivering solutions 
+                      for diverse markets from startups to enterprise organizations.
+                    </p>
+                  </motion.div>
+                  
+                  {/* Quick Stats */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 1.4 }}
+                    className="grid grid-cols-2 gap-4 pt-4"
+                  >
+                    <div className="text-center p-4 rounded-lg bg-white/5">
+                      <div className="text-2xl font-bold text-primary">5+</div>
+                      <div className="text-sm text-primary-blue">Years Experience</div>
+                    </div>
+                    <div className="text-center p-4 rounded-lg bg-white/5">
+                      <div className="text-2xl font-bold text-primary">6</div>
+                      <div className="text-sm text-primary-blue">Countries</div>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
 
         {/* World Map Section */}
         <motion.div
