@@ -112,34 +112,9 @@ const Index = () => {
 
             <motion.h1
               variants={itemVariants}
-              className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent pb-2 relative"
+              className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent pb-2"
             >
-              <span className="relative inline-block">
-                <span
-                  className="relative z-10"
-                  style={{
-                    animation: "glitch 1s linear infinite"
-                  }}
-                >
-                  HOLA 👋🏻, I'm Ahmed Mostafa
-                </span>
-                <span
-                  className="absolute top-0 left-0 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent"
-                  style={{
-                    animation: "glitch-1 0.5s linear infinite reverse"
-                  }}
-                >
-                  HOLA 👋🏻, I'm Ahmed Mostafa
-                </span>
-                <span
-                  className="absolute top-0 left-0 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent"
-                  style={{
-                    animation: "glitch-2 0.3s linear infinite"
-                  }}
-                >
-                  HOLA 👋🏻, I'm Ahmed Mostafa
-                </span>
-              </span>
+              HOLA 👋🏻, I'm Ahmed Mostafa
             </motion.h1>
 
             <motion.div
@@ -263,15 +238,7 @@ const Index = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent pb-2">
-              Building the{" "}
-              <span 
-                className="inline-block relative"
-                style={{
-                  animation: "rotate-text 3s ease-in-out infinite"
-                }}
-              >
-                Future
-              </span>
+              Building the Future
             </h2>
             <p className="text-xl text-primary-blue max-w-3xl mx-auto">
               With years of experience in software development, I focus on
@@ -328,90 +295,6 @@ const Index = () => {
           </div>
         </div>
       </motion.section>
-
-      <style jsx>{`
-        @keyframes glitch {
-          0%, 100% {
-            transform: translate(0);
-          }
-          20% {
-            transform: translate(-2px, 2px);
-          }
-          40% {
-            transform: translate(-2px, -2px);
-          }
-          60% {
-            transform: translate(2px, 2px);
-          }
-          80% {
-            transform: translate(2px, -2px);
-          }
-        }
-
-        @keyframes glitch-1 {
-          0%, 100% {
-            transform: translate(0);
-            opacity: 1;
-          }
-          20% {
-            transform: translate(-1px, 1px);
-            opacity: 0.8;
-          }
-          40% {
-            transform: translate(-1px, -1px);
-            opacity: 0.6;
-          }
-          60% {
-            transform: translate(1px, 1px);
-            opacity: 0.8;
-          }
-          80% {
-            transform: translate(1px, -1px);
-            opacity: 0.6;
-          }
-        }
-
-        @keyframes glitch-2 {
-          0%, 100% {
-            transform: translate(0);
-            opacity: 1;
-          }
-          20% {
-            transform: translate(1px, -1px);
-            opacity: 0.7;
-          }
-          40% {
-            transform: translate(1px, 1px);
-            opacity: 0.5;
-          }
-          60% {
-            transform: translate(-1px, -1px);
-            opacity: 0.7;
-          }
-          80% {
-            transform: translate(-1px, 1px);
-            opacity: 0.5;
-          }
-        }
-
-        @keyframes rotate-text {
-          0%, 20% {
-            transform: rotateY(0deg);
-          }
-          25%, 45% {
-            transform: rotateY(180deg);
-          }
-          50%, 70% {
-            transform: rotateY(360deg);
-          }
-          75%, 95% {
-            transform: rotateY(540deg);
-          }
-          100% {
-            transform: rotateY(720deg);
-          }
-        }
-      `}</style>
     </div>
   );
 };
