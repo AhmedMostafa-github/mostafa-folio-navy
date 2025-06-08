@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import {
   ComposableMap,
@@ -11,7 +10,7 @@ const WorldMap = () => {
   const countries = [
     { name: "USA", color: "#3B82F6", coordinates: [-95.7129, 37.0902] },
     { name: "Canada", color: "#10B981", coordinates: [-106.3468, 56.1304] },
-    { name: "UK", color: "#8B5CF6", coordinates: [-3.4360, 55.3781] },
+    { name: "UK", color: "#8B5CF6", coordinates: [-3.436, 55.3781] },
     { name: "Egypt", color: "#F59E0B", coordinates: [30.8025, 26.8206] },
     { name: "UAE", color: "#EF4444", coordinates: [53.8478, 23.4241] },
     { name: "Saudi Arabia", color: "#06B6D4", coordinates: [45.0792, 23.8859] },
@@ -24,23 +23,27 @@ const WorldMap = () => {
       <ComposableMap
         projection="geoMercator"
         projectionConfig={{
-          scale: 120,
-          center: [20, 20]
+          scale: 100,
+          center: [20, 40],
         }}
-        width={800}
-        height={400}
+        width={700}
+        height={100}
         className="w-full h-full"
       >
         <Geographies geography="https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json">
           {({ geographies }) =>
             geographies.map((geo) => {
               const isSelected = selectedCountryIds.includes(geo.id);
-              
+
               return (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={isSelected ? "rgba(103, 232, 249, 0.2)" : "rgba(103, 232, 249, 0.05)"}
+                  fill={
+                    isSelected
+                      ? "rgba(103, 232, 249, 0.2)"
+                      : "rgba(103, 232, 249, 0.05)"
+                  }
                   stroke={isSelected ? "#67E8F9" : "#334155"}
                   strokeWidth={isSelected ? 2 : 0.5}
                   style={{
@@ -48,7 +51,9 @@ const WorldMap = () => {
                       outline: "none",
                     },
                     hover: {
-                      fill: isSelected ? "rgba(103, 232, 249, 0.3)" : "rgba(103, 232, 249, 0.1)",
+                      fill: isSelected
+                        ? "rgba(103, 232, 249, 0.3)"
+                        : "rgba(103, 232, 249, 0.1)",
                       outline: "none",
                     },
                     pressed: {
@@ -60,7 +65,7 @@ const WorldMap = () => {
             })
           }
         </Geographies>
-        
+
         {/* Country markers */}
         {countries.map((country, index) => (
           <Marker key={country.name} coordinates={country.coordinates}>

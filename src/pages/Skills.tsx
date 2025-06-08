@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import SplashCursor from "@/components/ui/splashCursor";
 
 const skillCategories = [
   {
@@ -81,6 +82,7 @@ const Skills = () => {
   return (
     <div className="min-h-screen pt-20 pb-16 px-4">
       <div className="max-w-7xl mx-auto">
+        <SplashCursor />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -196,8 +198,8 @@ const Skills = () => {
                     description: "Mentoring and project management",
                   },
                   {
-                    title: "Performance Optimization",
-                    description: "Code and database optimization",
+                    title: "Performance & Security",
+                    description: "Code hardening and security optimization",
                   },
                 ].map((competency, index) => (
                   <motion.div

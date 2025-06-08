@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import SplashCursor from "@/components/ui/splashCursor";
 
 const projects = [
   {
@@ -104,6 +105,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen pt-20 pb-16 px-4 hero-gradient">
       <div className="max-w-7xl mx-auto">
+        <SplashCursor />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

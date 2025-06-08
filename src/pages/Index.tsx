@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Code, Rocket, Mail, Download, Linkedin } from "lucide-react";
+import SplashCursor from "@/components/ui/splashCursor";
 
 const Index = () => {
   const containerVariants = {
@@ -38,6 +39,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen pt-16 hero-gradient">
+      <SplashCursor />
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
         {/* Animated Background Elements */}
@@ -133,7 +135,7 @@ const Index = () => {
               className="text-lg text-[#D7E7F9] md:text-xl text-primary-blue max-w-3xl mx-auto leading-relaxed"
             >
               Crafting exceptional digital experiences with modern technologies.
-              Specialized in full-stack development, scalable architectures, and
+              Specialized in Mobile development, scalable architectures, and
               innovative solutions.
             </motion.p>
 
@@ -249,7 +251,7 @@ const Index = () => {
             {[
               {
                 title: "5+ Years Experience",
-                description: "Full-stack development across various industries",
+                description: "Mobile development across various industries",
                 icon: "📈",
               },
               {
@@ -259,9 +261,8 @@ const Index = () => {
                 icon: "🚀",
               },
               {
-                title: "Modern Tech Stack",
-                description:
-                  "Expertise in React, Node.js, Python, and cloud technologies",
+                title: "Modern Front-end Stack",
+                description: "Expertise in React, React Native and Next.js",
                 icon: "⚡",
               },
             ].map((item, index) => (

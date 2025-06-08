@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Linkedin } from "lucide-react";
+import SplashCursor from "@/components/ui/splashCursor";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -46,6 +47,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-20 pb-16 px-4">
       <div className="max-w-6xl mx-auto">
+        <SplashCursor />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

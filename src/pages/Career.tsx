@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import SplashCursor from "@/components/ui/splashCursor";
 
 const careerHistory = [
   {
@@ -105,6 +106,7 @@ const Career = () => {
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
+        <SplashCursor />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
