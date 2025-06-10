@@ -1,260 +1,193 @@
 
 import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import WorldMap from "@/components/WorldMap";
-import { Globe, Users, Zap, Target } from "lucide-react";
+import { MapPin, Calendar, Code, Coffee } from "lucide-react";
 import SplashCursor from "@/components/ui/splashCursor";
+import CountUp from "@/components/ui/CountUp";
 
 const About = () => {
-  const coreValues = [
-    {
-      title: "Continuous Learning",
-      icon: <Globe className="w-8 h-8" />,
-      description:
-        "Technology evolves rapidly, and so should we. I'm committed to staying current with the latest trends and best practices.",
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      title: "Quality First",
-      icon: <Zap className="w-8 h-8" />,
-      description:
-        "Writing clean, maintainable code that stands the test of time. Quality over quantity, always.",
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      title: "Collaboration",
-      icon: <Users className="w-8 h-8" />,
-      description:
-        "Great software is built by great teams. I believe in open communication and knowledge sharing.",
-      color: "from-green-500 to-emerald-500",
-    },
-    {
-      title: "User-Centric",
-      icon: <Target className="w-8 h-8" />,
-      description:
-        "Every decision should be made with the end user in mind. Technology serves people, not the other way around.",
-      color: "from-orange-500 to-red-500",
-    },
-  ];
-
   return (
     <div className="min-h-screen pt-20 pb-16 px-4 hero-gradient">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <SplashCursor />
-        {/* Header Section */}
+        
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16 mt-12"
         >
-          <motion.h1
-            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6"
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6">
             About Me
-          </motion.h1>
-          <motion.p
-            className="text-xl text-[#D7E7F9] max-w-3xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Passionate about creating innovative solutions and building
-            exceptional digital experiences across the globe
-          </motion.p>
+          </h1>
+          <p className="text-xl text-[#D7E7F9] max-w-3xl mx-auto">
+            Passionate full-stack developer with over <CountUp end={5} /> years of experience 
+            building scalable web applications and mobile solutions.
+          </p>
         </motion.div>
 
-        {/* My Story Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-16 lg:col-span-2"
-        >
-          <Card className="bg-card border-border hover:border-blue-500/50 transition-all duration-500 overflow-hidden card-glow">
-            <CardHeader>
-              <CardTitle className="text-2xl font-semibold text-foreground">
-                My Story
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6 text-primary-blue leading-relaxed">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                My journey into software development began with a curiosity
-                about how things work. What started as tinkering with HTML and
-                CSS in college evolved into a passion for creating robust,
-                scalable applications that solve real-world problems across
-                different cultures and markets.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                This international experience has taught me that great software
-                is not just about clean code—it's about understanding diverse
-                user needs, collaborating across time zones and cultures, and
-                continuously adapting to different technological landscapes and
-                business requirements.
-              </motion.p>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* Global Experience Section */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          {/* Profile Card */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-1"
           >
-            <Card className="bg-card border-border hover:border-blue-500/50 transition-all duration-500 h-full overflow-hidden card-glow">
-              <CardHeader>
-                <CardTitle className="text-2xl font-semibold text-foreground flex items-center gap-3">
-                  <Globe className="w-8 h-8 text-primary" />
-                  Global Experience
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="text-primary-blue leading-relaxed"
-                >
-                  Over the past 5+ years, I've had the privilege of working with
-                  diverse clients and teams across six countries, delivering
-                  innovative software solutions that span continents and
-                  cultures.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  className="text-primary-blue leading-relaxed"
-                >
-                  From fintech startups in Canada to enterprise solutions in the
-                  UAE, e-commerce platforms in the USA to digital transformation
-                  projects in the UK, each experience has enriched my
-                  understanding of global technology needs and best practices.
-                </motion.p>
+            <Card className="bg-card border-border hover:border-primary/50 transition-all duration-500 card-glow">
+              <CardHeader className="text-center">
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  className="grid grid-cols-2 gap-4 pt-4"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                  className="mx-auto mb-4"
                 >
-                  <div className="text-center p-4 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg border border-blue-500/20">
-                    <div className="text-2xl font-bold text-primary">6</div>
-                    <div className="text-sm text-primary-blue">Countries</div>
-                  </div>
-                  <div className="text-center p-4 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
-                    <div className="text-2xl font-bold text-primary">50+</div>
-                    <div className="text-sm text-primary-blue">Projects</div>
-                  </div>
+                  <img
+                    src="/ahmed.JPG"
+                    alt="Ahmed Mostafa"
+                    className="w-32 h-32 rounded-full object-cover border-4 border-primary/20 shadow-lg"
+                  />
+                </motion.div>
+                <CardTitle className="text-2xl font-bold text-foreground">
+                  Ahmed Mostafa
+                </CardTitle>
+                <p className="text-primary font-medium">Full-Stack Developer</p>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <motion.div 
+                  className="flex items-center gap-3 text-muted-foreground"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <MapPin className="w-5 h-5 text-primary" />
+                  <span>Cairo, Egypt</span>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center gap-3 text-muted-foreground"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Calendar className="w-5 h-5 text-primary" />
+                  <span><CountUp end={5} suffix="+" /> Years Experience</span>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center gap-3 text-muted-foreground"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Code className="w-5 h-5 text-primary" />
+                  <span><CountUp end={20} suffix="+" /> Technologies</span>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center gap-3 text-muted-foreground"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Coffee className="w-5 h-5 text-primary" />
+                  <span><CountUp end={1000} suffix="+" /> Cups of Coffee</span>
                 </motion.div>
               </CardContent>
             </Card>
           </motion.div>
 
-          {/* World Map Section */}
+          {/* Main Content */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            className="lg:col-span-2 space-y-8"
           >
-            <Card className="bg-card border-border hover:border-blue-500/50 transition-all duration-500 h-full overflow-hidden card-glow">
+            {/* Bio Section */}
+            <Card className="bg-card border-border hover:border-primary/50 transition-all duration-500 card-glow">
               <CardHeader>
-                <CardTitle className="text-xl font-semibold text-foreground">
-                  Countries I've Worked In
+                <CardTitle className="text-2xl font-semibold text-foreground">
+                  My Story
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-primary-blue leading-relaxed">
+                <p>
+                  I'm a passionate full-stack developer with over <CountUp end={5} /> years of experience 
+                  in building scalable web applications and mobile solutions. My journey in 
+                  software development started with a curiosity about how things work behind 
+                  the scenes of the websites and apps we use daily.
+                </p>
+                <p>
+                  Throughout my career, I've had the opportunity to work on diverse projects 
+                  ranging from e-commerce platforms to mobile banking applications. I believe 
+                  in writing clean, maintainable code and staying up-to-date with the latest 
+                  technologies and best practices.
+                </p>
+                <p>
+                  When I'm not coding, you can find me exploring new technologies, contributing 
+                  to open-source projects, or sharing knowledge with the developer community. 
+                  I'm always excited about taking on new challenges and building solutions 
+                  that make a positive impact.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Stats */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { label: "Projects Completed", value: 50, suffix: "+" },
+                { label: "Happy Clients", value: 25, suffix: "+" },
+                { label: "Code Commits", value: 2000, suffix: "+" }
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="text-center p-6 bg-card border border-border rounded-lg card-glow"
+                >
+                  <div className="text-4xl font-bold text-primary mb-2">
+                    <CountUp end={stat.value} suffix={stat.suffix} />
+                  </div>
+                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Current Focus */}
+            <Card className="bg-card border-border hover:border-primary/50 transition-all duration-500 card-glow">
+              <CardHeader>
+                <CardTitle className="text-2xl font-semibold text-foreground">
+                  Current Focus
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <WorldMap />
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {["USA", "Canada", "UK", "Egypt", "UAE", "Saudi Arabia"].map(
-                    (country, index) => (
-                      <motion.span
-                        key={country}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.8 + index * 0.1 }}
-                        className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-primary-blue text-sm rounded-full border border-blue-500/30"
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    "React & Next.js",
+                    "React Native",
+                    "Node.js",
+                    "TypeScript",
+                    "Cloud Architecture",
+                    "AI/ML Integration",
+                    "Mobile Development",
+                    "DevOps",
+                  ].map((focus, index) => (
+                    <motion.div
+                      key={focus}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.8 + index * 0.1 }}
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <Badge
+                        variant="secondary"
+                        className="bg-blue-500/20 text-blue-300 border-blue-500/30 hover:bg-blue-500/30 transition-colors duration-200"
                       >
-                        {country}
-                      </motion.span>
-                    )
-                  )}
+                        {focus}
+                      </Badge>
+                    </motion.div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
           </motion.div>
         </div>
-
-        {/* Core Values Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Core Values & Philosophy
-            </h2>
-            <p className="text-primary-blue max-w-2xl mx-auto">
-              The principles that guide my approach to technology and
-              collaboration
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {coreValues.map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                whileHover={{
-                  scale: 1.05,
-                  y: -5,
-                  transition: { duration: 0.2 },
-                }}
-              >
-                <Card className="bg-card border-border h-full overflow-hidden group card-glow flex flex-col">
-                  <CardContent className="p-6 text-center flex-grow flex flex-col">
-                    <motion.div
-                      className="mb-4 text-primary group-hover:scale-110 transition-transform duration-300"
-                      whileHover={{
-                        rotate: [0, -10, 10, 0],
-                        transition: { duration: 0.5 },
-                      }}
-                    >
-                      {value.icon}
-                    </motion.div>
-                    <h3 className="text-lg font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
-                      {value.title}
-                    </h3>
-                    <p className="text-primary-blue text-sm leading-relaxed flex-grow">
-                      {value.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </div>
   );

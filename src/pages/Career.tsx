@@ -107,12 +107,14 @@ const Career = () => {
         </motion.div>
 
         <div className="relative flex flex-col items-center">
-          {/* Animated Timeline line - visible on all screens */}
+          {/* Animated Timeline line - now starts from the first year label */}
           <motion.div
-            className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-blue-500/50 transform -translate-x-0.5"
+            className="absolute left-1/2 transform -translate-x-0.5 w-1 bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-blue-500/50"
             style={{
               backgroundImage:
                 "repeating-linear-gradient(to bottom, transparent, transparent 10px, rgba(51, 153, 255, 0.5) 10px, rgba(51, 153, 255, 0.5) 20px)",
+              top: "0px", // Start from the very top
+              height: "calc(100% + 40px)", // Extend slightly beyond the content
             }}
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1 }}

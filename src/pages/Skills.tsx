@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import SplashCursor from "@/components/ui/splashCursor";
+import CountUp from "@/components/ui/CountUp";
 
 const skillCategories = [
   {
@@ -139,6 +140,9 @@ const Skills = () => {
                       {category.icon}
                     </motion.span>
                     {category.category}
+                    <motion.span className="ml-auto text-lg text-primary">
+                      <CountUp end={category.skills.length} suffix="+" />
+                    </motion.span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -187,18 +191,22 @@ const Skills = () => {
                   {
                     title: "Problem Solving",
                     description: "Analytical thinking and debugging",
+                    percentage: 95,
                   },
                   {
                     title: "System Design",
                     description: "Scalable architecture planning",
+                    percentage: 90,
                   },
                   {
                     title: "Team Leadership",
                     description: "Mentoring and project management",
+                    percentage: 88,
                   },
                   {
                     title: "Performance & Security",
                     description: "Code hardening and security optimization",
+                    percentage: 92,
                   },
                 ].map((competency, index) => (
                   <motion.div
@@ -213,9 +221,14 @@ const Skills = () => {
                     }}
                     className="p-4"
                   >
-                    <h3 className="text-lg font-semibold mb-2 text-primary">
-                      {competency.title}
-                    </h3>
+                    <div className="mb-3">
+                      <div className="text-3xl font-bold text-primary mb-1">
+                        <CountUp end={competency.percentage} suffix="%" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-foreground">
+                        {competency.title}
+                      </h3>
+                    </div>
                     <p className="text-muted-foreground text-sm">
                       {competency.description}
                     </p>
