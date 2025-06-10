@@ -1,8 +1,8 @@
-
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import SplashCursor from "@/components/ui/splashCursor";
+import CountUp from "@/components/ui/CountUp";
 
 const skillCategories = [
   {
@@ -140,6 +140,9 @@ const Skills = () => {
                     </motion.span>
                     {category.category}
                   </CardTitle>
+                  <div className="text-sm text-muted-foreground">
+                    <CountUp end={category.skills.length} suffix=" Technologies" />
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-3">

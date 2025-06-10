@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import SplashCursor from "@/components/ui/splashCursor";
+import CountUp from "@/components/ui/CountUp";
 
 const projects = [
   {
@@ -130,6 +131,19 @@ const Projects = () => {
             technologies and industries. Each project represents a unique
             challenge solved with modern solutions.
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="mt-4"
+          >
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-500/30">
+              <span className="text-2xl font-bold text-primary mr-2">
+                <CountUp end={projects.length} />
+              </span>
+              <span className="text-sm text-primary-blue">Featured Projects</span>
+            </div>
+          </motion.div>
         </motion.div>
 
         <motion.div
