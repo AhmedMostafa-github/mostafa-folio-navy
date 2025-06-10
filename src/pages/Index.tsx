@@ -240,7 +240,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 flex items-center flex-wrap justify-center">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent pb-2 flex items-center flex-wrap justify-center">
               <span className="mb-4 md:mb-0">Building the</span>
               <BrushStroke className="min-w-[300px] px-12 py-2">
                 <RotatingText
