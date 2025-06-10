@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Linkedin, MapPin, Clock, Send, MessageCircle, Star, Zap } from "lucide-react";
+import {
+  Mail,
+  Linkedin,
+  MapPin,
+  Clock,
+  Send,
+  MessageCircle,
+  Star,
+  Zap,
+} from "lucide-react";
 import SplashCursor from "@/components/ui/splashCursor";
 
 const Contact = () => {
@@ -71,7 +79,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-20 pb-16 px-4 hero-gradient">
       <SplashCursor />
-      
+
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -79,13 +87,13 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 mt-12"
         >
-          <motion.h1 
+          <motion.h1
             className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
             Let's Create Something
-            <motion.span 
+            <motion.span
               className="block text-primary-blue"
               animate={{ opacity: [0.7, 1, 0.7] }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -93,14 +101,15 @@ const Contact = () => {
               Amazing Together
             </motion.span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-xl text-[#D7E7F9] max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Ready to bring your ideas to life? I'm here to help you build exceptional digital experiences. 
-            Let's discuss your project and make it happen.
+            Ready to bring your ideas to life? I'm here to help you build
+            exceptional digital experiences. Let's discuss your project and make
+            it happen.
           </motion.p>
         </motion.div>
 
@@ -111,14 +120,11 @@ const Contact = () => {
           className="grid lg:grid-cols-3 gap-8 mb-16"
         >
           {/* Main Contact Form */}
-          <motion.div
-            variants={itemVariants}
-            className="lg:col-span-2"
-          >
+          <motion.div variants={itemVariants} className="lg:col-span-2">
             <Card className="bg-card border-border hover:border-blue-500/30 transition-all duration-500 shadow-2xl card-glow">
               <CardHeader className="pb-8">
-                <motion.div 
-                  className="flex items-center gap-3 mb-2"
+                <motion.div
+                  className="flex items-center gap-3 mb-3.5"
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -130,18 +136,22 @@ const Contact = () => {
                   </CardTitle>
                 </motion.div>
                 <p className="text-muted-foreground">
-                  Fill out the form below and I'll get back to you within 24 hours
+                  Fill out the form below and I'll get back to you within 24
+                  hours
                 </p>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
-                    <motion.div 
+                    <motion.div
                       className="space-y-3"
                       whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <Label htmlFor="name" className="text-foreground font-medium">
+                      <Label
+                        htmlFor="name"
+                        className="text-foreground font-medium"
+                      >
                         Full Name *
                       </Label>
                       <Input
@@ -154,12 +164,15 @@ const Contact = () => {
                         className="bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-300 h-12"
                       />
                     </motion.div>
-                    <motion.div 
+                    <motion.div
                       className="space-y-3"
                       whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <Label htmlFor="email" className="text-foreground font-medium">
+                      <Label
+                        htmlFor="email"
+                        className="text-foreground font-medium"
+                      >
                         Email Address *
                       </Label>
                       <Input
@@ -175,12 +188,15 @@ const Contact = () => {
                     </motion.div>
                   </div>
 
-                  <motion.div 
+                  <motion.div
                     className="space-y-3"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Label htmlFor="subject" className="text-foreground font-medium">
+                    <Label
+                      htmlFor="subject"
+                      className="text-foreground font-medium"
+                    >
                       Subject *
                     </Label>
                     <Input
@@ -194,12 +210,15 @@ const Contact = () => {
                     />
                   </motion.div>
 
-                  <motion.div 
+                  <motion.div
                     className="space-y-3"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Label htmlFor="message" className="text-foreground font-medium">
+                    <Label
+                      htmlFor="message"
+                      className="text-foreground font-medium"
+                    >
                       Message *
                     </Label>
                     <Textarea
@@ -209,7 +228,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="Tell me about your project, goals, and how I can help bring your vision to life..."
                       required
-                      rows={6}
+                      rows={12}
                       className="bg-background/50 border-border/50 focus:border-primary/50 resize-none transition-all duration-300"
                     />
                   </motion.div>
@@ -225,9 +244,13 @@ const Contact = () => {
                       size="lg"
                     >
                       {isSubmitting ? (
-                        <motion.div 
+                        <motion.div
                           animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
                           className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full"
                         />
                       ) : (
@@ -244,14 +267,11 @@ const Contact = () => {
           </motion.div>
 
           {/* Contact Info Sidebar */}
-          <motion.div
-            variants={itemVariants}
-            className="space-y-6"
-          >
+          <motion.div variants={itemVariants} className="space-y-6">
             {/* Quick Contact */}
             <Card className="bg-card border-border hover:border-blue-500/30 transition-all duration-500 shadow-xl card-glow">
               <CardHeader>
-                <motion.div 
+                <motion.div
                   className="flex items-center gap-3"
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
@@ -265,20 +285,28 @@ const Contact = () => {
                 </motion.div>
               </CardHeader>
               <CardContent className="space-y-4">
-                <motion.div 
+                <motion.div
                   className="flex items-center gap-4 p-3 rounded-lg bg-background/30 border border-border/30"
-                  whileHover={{ scale: 1.02, backgroundColor: "rgba(51, 153, 255, 0.1)" }}
+                  whileHover={{
+                    scale: 1.02,
+                    backgroundColor: "rgba(51, 153, 255, 0.1)",
+                  }}
                   transition={{ duration: 0.2 }}
                 >
                   <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground font-medium">ahmed-emam@outlook.com</p>
+                    <p className="text-foreground font-medium">
+                      ahmed-emam@outlook.com
+                    </p>
                   </div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="flex items-center gap-4 p-3 rounded-lg bg-background/30 border border-border/30"
-                  whileHover={{ scale: 1.02, backgroundColor: "rgba(51, 153, 255, 0.1)" }}
+                  whileHover={{
+                    scale: 1.02,
+                    backgroundColor: "rgba(51, 153, 255, 0.1)",
+                  }}
                   transition={{ duration: 0.2 }}
                 >
                   <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
@@ -287,15 +315,22 @@ const Contact = () => {
                     <p className="text-foreground font-medium">Cairo, Egypt</p>
                   </div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="flex items-center gap-4 p-3 rounded-lg bg-background/30 border border-border/30"
-                  whileHover={{ scale: 1.02, backgroundColor: "rgba(51, 153, 255, 0.1)" }}
+                  whileHover={{
+                    scale: 1.02,
+                    backgroundColor: "rgba(51, 153, 255, 0.1)",
+                  }}
                   transition={{ duration: 0.2 }}
                 >
                   <Clock className="w-5 h-5 text-primary flex-shrink-0" />
                   <div>
-                    <p className="text-sm text-muted-foreground">Response Time</p>
-                    <p className="text-foreground font-medium">Within 24 hours</p>
+                    <p className="text-sm text-muted-foreground">
+                      Response Time
+                    </p>
+                    <p className="text-foreground font-medium">
+                      Within 24 hours
+                    </p>
                   </div>
                 </motion.div>
               </CardContent>
@@ -304,7 +339,7 @@ const Contact = () => {
             {/* Social Connect */}
             <Card className="bg-card border-border hover:border-blue-500/30 transition-all duration-500 shadow-xl card-glow">
               <CardHeader>
-                <motion.div 
+                <motion.div
                   className="flex items-center gap-3"
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
@@ -358,12 +393,12 @@ const Contact = () => {
             {/* Status Badge */}
             <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20 shadow-xl card-glow">
               <CardContent className="pt-6">
-                <motion.div 
+                <motion.div
                   className="flex items-center gap-3 mb-3"
                   animate={{ scale: [1, 1.02, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="w-4 h-4 bg-green-500 rounded-full"
                     animate={{ opacity: [0.5, 1, 0.5] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
@@ -373,7 +408,8 @@ const Contact = () => {
                   </span>
                 </motion.div>
                 <p className="text-sm text-muted-foreground">
-                  Currently accepting new opportunities and exciting collaborations.
+                  Currently accepting new opportunities and exciting
+                  collaborations.
                 </p>
               </CardContent>
             </Card>
@@ -391,16 +427,17 @@ const Contact = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
             Why Work With Me?
           </h2>
-          
+
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
                 icon: Zap,
                 title: "Fast Delivery",
-                description: "Quick turnaround times without compromising quality",
+                description:
+                  "Quick turnaround times without compromising quality",
                 color: "text-yellow-400",
                 bgColor: "from-yellow-500/10 to-orange-500/10",
-                borderColor: "border-yellow-500/20"
+                borderColor: "border-yellow-500/20",
               },
               {
                 icon: Star,
@@ -408,7 +445,7 @@ const Contact = () => {
                 description: "Attention to detail and modern best practices",
                 color: "text-blue-400",
                 bgColor: "from-blue-500/10 to-purple-500/10",
-                borderColor: "border-blue-500/20"
+                borderColor: "border-blue-500/20",
               },
               {
                 icon: MessageCircle,
@@ -416,8 +453,8 @@ const Contact = () => {
                 description: "Regular updates and transparent collaboration",
                 color: "text-green-400",
                 bgColor: "from-green-500/10 to-emerald-500/10",
-                borderColor: "border-green-500/20"
-              }
+                borderColor: "border-green-500/20",
+              },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -435,7 +472,9 @@ const Contact = () => {
                 >
                   <item.icon className={`w-6 h-6 ${item.color}`} />
                 </motion.div>
-                <h3 className="text-xl font-semibold mb-2 text-white">{item.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {item.title}
+                </h3>
                 <p className="text-primary-blue">{item.description}</p>
               </motion.div>
             ))}
