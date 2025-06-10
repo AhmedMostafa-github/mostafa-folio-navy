@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import SplashCursor from "@/components/ui/splashCursor";
-import CountUp from "@/components/ui/CountUp";
 
 const projects = [
   {
@@ -125,38 +124,12 @@ const Projects = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl text-[#D7E7F9] text-primary-blue max-w-3xl mx-auto mb-8"
+            className="text-xl text-[#D7E7F9] text-primary-blue max-w-3xl mx-auto"
           >
             A showcase of my recent work, demonstrating expertise across various
             technologies and industries. Each project represents a unique
             challenge solved with modern solutions.
           </motion.p>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex justify-center gap-8 text-center"
-          >
-            <div className="text-primary">
-              <div className="text-4xl font-bold mb-2">
-                <CountUp end={projects.length} suffix="+" />
-              </div>
-              <p className="text-sm text-muted-foreground">Projects Completed</p>
-            </div>
-            <div className="text-primary">
-              <div className="text-4xl font-bold mb-2">
-                <CountUp end={100} suffix="%" />
-              </div>
-              <p className="text-sm text-muted-foreground">Client Satisfaction</p>
-            </div>
-            <div className="text-primary">
-              <div className="text-4xl font-bold mb-2">
-                <CountUp end={50} suffix="K+" />
-              </div>
-              <p className="text-sm text-muted-foreground">Lines of Code</p>
-            </div>
-          </motion.div>
         </motion.div>
 
         <motion.div
