@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Code, Rocket, Mail, Download, Linkedin } from "lucide-react";
 import SplashCursor from "@/components/ui/splashCursor";
 import RotatingText from "@/components/ui/rotatingText";
+import CountUp from "@/components/ui/CountUp";
 
 const Index = () => {
   const containerVariants = {
@@ -267,17 +268,22 @@ const Index = () => {
                 title: "5+ Years Experience",
                 description: "Mobile development across various industries",
                 icon: "📈",
+                number: 5,
+                suffix: "+ Years Experience"
               },
               {
                 title: "20+ Projects",
                 description:
                   "Successfully delivered projects from concept to production",
                 icon: "🚀",
+                number: 20,
+                suffix: "+ Projects"
               },
               {
                 title: "Modern Front-end Stack",
                 description: "Expertise in React, React Native and Next.js",
                 icon: "⚡",
+                number: null
               },
             ].map((item, index) => (
               <motion.div
@@ -301,7 +307,11 @@ const Index = () => {
                   {item.icon}
                 </motion.div>
                 <h3 className="text-xl font-semibold mb-4 text-white">
-                  {item.title}
+                  {item.number ? (
+                    <CountUp end={item.number} duration={2000} delay={index * 200 + 500} suffix={item.suffix?.replace(`${item.number}`, '')} />
+                  ) : (
+                    item.title
+                  )}
                 </h3>
                 <p className="text-primary-blue">{item.description}</p>
               </motion.div>
