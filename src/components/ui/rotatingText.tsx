@@ -78,12 +78,28 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
     const [currentTextIndex, setCurrentTextIndex] = useState<number>(0);
 
     const splitIntoCharacters = (text: string): string[] => {
-      if (typeof Intl !== "undefined" && Intl.Segmenter) {
-        const segmenter = new Intl.Segmenter("en", { granularity: "grapheme" });
-        return Array.from(
-          segmenter.segment(text),
-          (segment) => segment.segment
-        );
+      interface SegmentResult {
+        segment: string;
+      }
+
+      if (
+        typeof Intl !== "undefined" &&
+        // @ts-expect-error -- Segmenter is a newer API that TypeScript doesn't recognize yet
+        typeof Intl.Segmenter === "function"
+      ) {
+        try {
+          // @ts-expect-error -- Segmenter is a newer API that TypeScript doesn't recognize yet
+          const segmenter = new Intl.Segmenter("en", {
+            granularity: "grapheme",
+          });
+          return Array.from(
+            segmenter.segment(text),
+            (segment: SegmentResult) => segment.segment
+          );
+        } catch (e) {
+          // Fallback to basic Array.from if Segmenter fails
+          return Array.from(text);
+        }
       }
       return Array.from(text);
     };
