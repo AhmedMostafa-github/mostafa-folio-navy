@@ -1,9 +1,9 @@
+
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import WorldMap from "@/components/WorldMap";
 import { Globe, Users, Zap, Target } from "lucide-react";
 import SplashCursor from "@/components/ui/splashCursor";
-import CountUp from "@/components/ui/CountUp";
 
 const About = () => {
   const coreValues = [
@@ -155,15 +155,11 @@ const About = () => {
                   className="grid grid-cols-2 gap-4 pt-4"
                 >
                   <div className="text-center p-4 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg border border-blue-500/20">
-                    <div className="text-2xl font-bold text-primary">
-                      <CountUp end={6} />
-                    </div>
+                    <div className="text-2xl font-bold text-primary">6</div>
                     <div className="text-sm text-primary-blue">Countries</div>
                   </div>
                   <div className="text-center p-4 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
-                    <div className="text-2xl font-bold text-primary">
-                      <CountUp end={50} suffix="+" />
-                    </div>
+                    <div className="text-2xl font-bold text-primary">50+</div>
                     <div className="text-sm text-primary-blue">Projects</div>
                   </div>
                 </motion.div>
