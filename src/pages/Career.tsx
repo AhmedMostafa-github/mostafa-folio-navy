@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -76,36 +77,8 @@ const careerHistory = [
 
 const Career = () => {
   return (
-    <div className="min-h-screen pt-20 pb-16 px-4 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.1, 0.2, 0.1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.1, 1, 1.1],
-            opacity: [0.15, 0.05, 0.15],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl"
-        />
-      </div>
-
-      <div className="max-w-5xl mx-auto relative z-10">
+    <div className="min-h-screen pt-20 pb-16 px-4 hero-gradient">
+      <div className="max-w-5xl mx-auto">
         <SplashCursor />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -114,7 +87,7 @@ const Career = () => {
           className="text-center mb-16 mt-12"
         >
           <motion.h1
-            className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent leading-tight pb-6"
+            className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -122,7 +95,7 @@ const Career = () => {
             Career Journey
           </motion.h1>
           <motion.p
-            className="text-xl text-[#D7E7F9] text-primary-blue max-w-3xl mx-auto"
+            className="text-xl text-[#D7E7F9] max-w-3xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -191,15 +164,8 @@ const Career = () => {
                   }}
                   className="w-full max-w-3xl mx-4"
                 >
-                  <Card className="bg-card/80 backdrop-blur-xl border-border hover:border-primary/50 transition-all duration-500 relative overflow-hidden shadow-xl">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0"
-                      whileHover={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-
-                    <CardHeader className="relative z-10">
+                  <Card className="bg-card border-border hover:border-primary/50 transition-all duration-500 overflow-hidden shadow-xl card-glow">
+                    <CardHeader>
                       <div className="flex items-center gap-3 mb-2">
                         <motion.span
                           className="text-4xl"
@@ -230,7 +196,7 @@ const Career = () => {
                       </div>
                     </CardHeader>
 
-                    <CardContent className="space-y-6 relative z-10">
+                    <CardContent className="space-y-6">
                       <p className="text-primary-blue leading-relaxed">
                         {job.description}
                       </p>
@@ -283,7 +249,7 @@ const Career = () => {
                             >
                               <Badge
                                 variant="secondary"
-                                className="text-xs bg-white/10 hover:bg-blue-500/20 transition-colors duration-200"
+                                className="text-xs bg-blue-500/20 text-blue-300 border-blue-500/30 hover:bg-blue-500/30 transition-colors duration-200"
                               >
                                 {tech}
                               </Badge>

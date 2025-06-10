@@ -69,46 +69,18 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 pb-16 px-4 relative overflow-hidden">
+    <div className="min-h-screen pt-20 pb-16 px-4 hero-gradient">
       <SplashCursor />
       
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 90, 180],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute top-1/4 left-1/6 w-32 h-32 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.1, 1, 1.1],
-            rotate: [180, 90, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute bottom-1/4 right-1/6 w-24 h-24 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-full blur-xl"
-        />
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-16 mt-12"
         >
           <motion.h1 
-            className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6"
+            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
@@ -143,7 +115,7 @@ const Contact = () => {
             variants={itemVariants}
             className="lg:col-span-2"
           >
-            <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:border-blue-500/30 transition-all duration-500 shadow-2xl">
+            <Card className="bg-card border-border hover:border-blue-500/30 transition-all duration-500 shadow-2xl card-glow">
               <CardHeader className="pb-8">
                 <motion.div 
                   className="flex items-center gap-3 mb-2"
@@ -277,7 +249,7 @@ const Contact = () => {
             className="space-y-6"
           >
             {/* Quick Contact */}
-            <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:border-blue-500/30 transition-all duration-500 shadow-xl">
+            <Card className="bg-card border-border hover:border-blue-500/30 transition-all duration-500 shadow-xl card-glow">
               <CardHeader>
                 <motion.div 
                   className="flex items-center gap-3"
@@ -330,7 +302,7 @@ const Contact = () => {
             </Card>
 
             {/* Social Connect */}
-            <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:border-blue-500/30 transition-all duration-500 shadow-xl">
+            <Card className="bg-card border-border hover:border-blue-500/30 transition-all duration-500 shadow-xl card-glow">
               <CardHeader>
                 <motion.div 
                   className="flex items-center gap-3"
@@ -384,7 +356,7 @@ const Contact = () => {
             </Card>
 
             {/* Status Badge */}
-            <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20 shadow-xl">
+            <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20 shadow-xl card-glow">
               <CardContent className="pt-6">
                 <motion.div 
                   className="flex items-center gap-3 mb-3"

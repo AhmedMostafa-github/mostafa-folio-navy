@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -80,7 +81,7 @@ const skillCategories = [
 
 const Skills = () => {
   return (
-    <div className="min-h-screen pt-20 pb-16 px-4">
+    <div className="min-h-screen pt-20 pb-16 px-4 hero-gradient">
       <div className="max-w-7xl mx-auto">
         <SplashCursor />
         <motion.div
@@ -89,10 +90,10 @@ const Skills = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 mt-12"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent leading-tight pb-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6">
             Skills & Technologies
           </h1>
-          <p className="text-xl text-[#D7E7F9] text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-[#D7E7F9] max-w-3xl mx-auto">
             A comprehensive overview of the technologies, frameworks, and tools
             I use to build scalable and efficient solutions across the full
             development stack.
@@ -112,9 +113,8 @@ const Skills = () => {
               }}
               className="group"
             >
-              <Card className="h-full bg-card/50 backdrop-blur-xl border-border hover:border-primary/50 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
-                <CardHeader className="relative z-10">
+              <Card className="h-full bg-card border-border hover:border-primary/50 transition-all duration-500 overflow-hidden card-glow">
+                <CardHeader>
                   <CardTitle className="flex items-center text-2xl font-semibold text-foreground">
                     <motion.span
                       className="text-3xl mr-3"
@@ -141,7 +141,7 @@ const Skills = () => {
                     {category.category}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="relative z-10">
+                <CardContent>
                   <div className="flex flex-wrap gap-3">
                     {category.skills.map((skill, skillIndex) => (
                       <motion.div
@@ -155,7 +155,7 @@ const Skills = () => {
                       >
                         <Badge
                           variant="secondary"
-                          className="text-sm py-2 px-3 bg-white/10 hover:bg-navy-gradient hover:text-white transition-all duration-200 cursor-default backdrop-blur-sm"
+                          className="text-sm py-2 px-3 bg-blue-500/20 text-blue-300 border-blue-500/30 hover:bg-navy-gradient hover:text-white transition-all duration-200 cursor-default backdrop-blur-sm"
                         >
                           {skill}
                         </Badge>
@@ -175,14 +175,13 @@ const Skills = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-16"
         >
-          <Card className="bg-card/50 backdrop-blur-xl border-border relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
-            <CardHeader className="relative z-10">
+          <Card className="bg-card border-border overflow-hidden card-glow">
+            <CardHeader>
               <CardTitle className="text-2xl font-semibold text-center">
                 Core Competencies
               </CardTitle>
             </CardHeader>
-            <CardContent className="relative z-10">
+            <CardContent>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 {[
                   {

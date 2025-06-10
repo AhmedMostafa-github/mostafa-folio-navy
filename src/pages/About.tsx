@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import WorldMap from "@/components/WorldMap";
@@ -37,24 +38,8 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20 pb-16 px-4 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 z-0">
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.1, 0.2, 0.1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
-        />
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
+    <div className="min-h-screen pt-20 pb-16 px-4 hero-gradient">
+      <div className="max-w-7xl mx-auto">
         <SplashCursor />
         {/* Header Section */}
         <motion.div
@@ -64,7 +49,7 @@ const About = () => {
           className="text-center mb-16 mt-12"
         >
           <motion.h1
-            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent leading-tight pb-6"
+            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -72,7 +57,7 @@ const About = () => {
             About Me
           </motion.h1>
           <motion.p
-            className="text-xl text-[#D7E7F9] text-primary-blue max-w-3xl mx-auto"
+            className="text-xl text-[#D7E7F9] max-w-3xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -90,14 +75,13 @@ const About = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-16 lg:col-span-2"
         >
-          <Card className="bg-card/80 backdrop-blur-xl border-border relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
-            <CardHeader className="relative z-10">
+          <Card className="bg-card border-border hover:border-blue-500/50 transition-all duration-500 overflow-hidden card-glow">
+            <CardHeader>
               <CardTitle className="text-2xl font-semibold text-foreground">
                 My Story
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6 text-primary-blue leading-relaxed relative z-10">
+            <CardContent className="space-y-6 text-primary-blue leading-relaxed">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -134,15 +118,14 @@ const About = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Card className="bg-card/80 backdrop-blur-xl border-border h-full relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
-              <CardHeader className="relative z-10">
+            <Card className="bg-card border-border hover:border-blue-500/50 transition-all duration-500 h-full overflow-hidden card-glow">
+              <CardHeader>
                 <CardTitle className="text-2xl font-semibold text-foreground flex items-center gap-3">
                   <Globe className="w-8 h-8 text-primary" />
                   Global Experience
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6 relative z-10">
+              <CardContent className="space-y-6">
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -190,14 +173,13 @@ const About = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Card className="bg-card/80 backdrop-blur-xl border-border h-full relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5" />
-              <CardHeader className="relative z-10">
+            <Card className="bg-card border-border hover:border-blue-500/50 transition-all duration-500 h-full overflow-hidden card-glow">
+              <CardHeader>
                 <CardTitle className="text-xl font-semibold text-foreground">
                   Countries I've Worked In
                 </CardTitle>
               </CardHeader>
-              <CardContent className="relative z-10">
+              <CardContent>
                 <WorldMap />
                 <div className="mt-4 flex flex-wrap gap-2">
                   {["USA", "Canada", "UK", "Egypt", "UAE", "Saudi Arabia"].map(
@@ -250,11 +232,8 @@ const About = () => {
                   transition: { duration: 0.2 },
                 }}
               >
-                <Card className="bg-card/80 backdrop-blur-xl border-border h-full relative overflow-hidden group">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
-                  />
-                  <CardContent className="p-6 text-center relative z-10">
+                <Card className="bg-card border-border h-full overflow-hidden group card-glow flex flex-col">
+                  <CardContent className="p-6 text-center flex-grow flex flex-col">
                     <motion.div
                       className="mb-4 text-primary group-hover:scale-110 transition-transform duration-300"
                       whileHover={{
@@ -267,7 +246,7 @@ const About = () => {
                     <h3 className="text-lg font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
                       {value.title}
                     </h3>
-                    <p className="text-primary-blue text-sm leading-relaxed">
+                    <p className="text-primary-blue text-sm leading-relaxed flex-grow">
                       {value.description}
                     </p>
                   </CardContent>
