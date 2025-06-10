@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Code, Rocket, Mail, Download, Linkedin } from "lucide-react";
 import SplashCursor from "@/components/ui/splashCursor";
+import RotatingText from "@/components/ui/rotatingText";
 
 const Index = () => {
   const containerVariants = {
@@ -238,8 +239,20 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent pb-2">
-              Building the Future
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent pb-2 flex items-center flex-wrap justify-center">
+              <span>Building the</span>
+              <RotatingText
+                texts={["Future", "Innovation ;)", "Dreams!"]}
+                mainClassName="px-2 sm:px-2 md:px-3 text-[#D7E7F9] bg-gradient-to-r from-white to-blue-300 bg-clip-text text-4xl md:text-6xl overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg inline-flex items-center ml-2"
+                staggerFrom={"last"}
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                exit={{ y: "-120%" }}
+                staggerDuration={0.025}
+                splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                rotationInterval={2000}
+              />
             </h2>
             <p className="text-xl text-primary-blue max-w-3xl mx-auto">
               With years of experience in software development, I focus on
