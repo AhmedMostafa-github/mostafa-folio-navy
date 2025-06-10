@@ -81,6 +81,83 @@
     background: rgba(13, 17, 23, 0.8);
     border-bottom: 1px solid rgba(102, 178, 255, 0.1);
   }
+
+  .brush-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .brush-wrap p {
+    position: relative;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+  }
+
+  .brush-wrap::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(51, 153, 255, 0.6);
+    clip-path: url(#clip);
+    z-index: 1;
+  }
+
+  .brush-wrap--indefinite::before {
+    clip-path: url(#clip-indefinite);
+  }
+
+  .brush-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 3rem;
+    min-width: 300px;
+  }
+
+  .brush-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    clip-path: url(#clip);
+    z-index: 1;
+  }
+
+  .brush-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    width: 100%;
+  }
+
+  .brush-stroke {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 130%;
+    height: 180%;
+    transform: translate(-50%, -50%);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M44.4,121.8c0,0,203.5-23.9,453.2-23.9c249.7,0,458.1,23.9,458.1,23.9s-194.9,44.7-453.2,44.7 C244.3,166.5,44.4,121.8,44.4,121.8z' style='fill:%23000000;'/%3E%3Cpath d='M29,116.3c0,0,169.5-32.7,463.9-32.7s478.1,32.7,478.1,32.7s-183.7,53.5-442,53.5S29,116.3,29,116.3z' style='fill:%23000000;'/%3E%3Cpath d='M15,111.5c0,0,149.1-46.1,474.7-46.1s490.3,46.1,490.3,46.1s-172.5,62.3-430.8,62.3S15,111.5,15,111.5z' style='fill:%23000000;'/%3E%3Cpath d='M985,115 L955,85 Q900,65 850,75 Q800,85 750,75 Q700,65 650,75 Q600,85 550,75 Q500,65 450,75 Q400,85 350,75 Q300,65 250,75 Q200,85 150,75 Q100,65 50,75 L15,85 L45,115 Q100,95 150,105 Q200,115 250,105 Q300,95 350,105 Q400,115 450,105 Q500,95 550,105 Q600,115 650,105 Q700,95 750,105 Q800,115 850,105 Q900,95 950,105 Z' style='fill:%23000000;'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    z-index: 1;
+  }
 }
 
 @layer utilities {

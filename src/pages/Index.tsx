@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -6,6 +5,7 @@ import { Code, Rocket, Mail, Download, Linkedin } from "lucide-react";
 import SplashCursor from "@/components/ui/splashCursor";
 import RotatingText from "@/components/ui/rotatingText";
 import CountUp from "@/components/ui/CountUp";
+import BrushStroke from "@/components/ui/BrushStroke";
 
 const Index = () => {
   const containerVariants = {
@@ -240,20 +240,22 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent pb-2 flex items-center flex-wrap justify-center">
-              <span>Building the</span>
-              <RotatingText
-                texts={["Future", "Innovation ;)", "Dreams!"]}
-                mainClassName="px-2 sm:px-2 md:px-3 text-[#D7E7F9] bg-gradient-to-r from-white to-blue-300 bg-clip-text text-4xl md:text-6xl overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg inline-flex items-center ml-2"
-                staggerFrom={"last"}
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                exit={{ y: "-120%" }}
-                staggerDuration={0.025}
-                splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-                transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                rotationInterval={2000}
-              />
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 flex items-center flex-wrap justify-center">
+              <span className="mb-4 md:mb-0">Building the</span>
+              <BrushStroke className="min-w-[300px] px-12 py-2">
+                <RotatingText
+                  texts={["Future", "Innovation ;)", "Dreams!"]}
+                  mainClassName="brush-text text-4xl md:text-6xl overflow-hidden justify-center inline-flex items-center"
+                  staggerFrom={"last"}
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  exit={{ y: "-120%" }}
+                  staggerDuration={0.025}
+                  splitLevelClassName="overflow-hidden"
+                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                  rotationInterval={2000}
+                />
+              </BrushStroke>
             </h2>
             <p className="text-xl text-primary-blue max-w-3xl mx-auto">
               With years of experience in software development, I focus on
@@ -269,7 +271,7 @@ const Index = () => {
                 description: "Mobile development across various industries",
                 icon: "📈",
                 number: 5,
-                suffix: "+ Years Experience"
+                suffix: "+ Years Experience",
               },
               {
                 title: "20+ Projects",
@@ -277,13 +279,13 @@ const Index = () => {
                   "Successfully delivered projects from concept to production",
                 icon: "🚀",
                 number: 20,
-                suffix: "+ Projects"
+                suffix: "+ Projects",
               },
               {
                 title: "Modern Front-end Stack",
                 description: "Expertise in React, React Native and Next.js",
                 icon: "⚡",
-                number: null
+                number: null,
               },
             ].map((item, index) => (
               <motion.div
@@ -308,7 +310,12 @@ const Index = () => {
                 </motion.div>
                 <h3 className="text-xl font-semibold mb-4 text-white">
                   {item.number ? (
-                    <CountUp end={item.number} duration={2000} delay={index * 200 + 500} suffix={item.suffix?.replace(`${item.number}`, '')} />
+                    <CountUp
+                      end={item.number}
+                      duration={2000}
+                      delay={index * 200 + 500}
+                      suffix={item.suffix?.replace(`${item.number}`, "")}
+                    />
                   ) : (
                     item.title
                   )}
