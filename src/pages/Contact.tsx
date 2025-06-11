@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -29,7 +30,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleInputChange = (
+  const handleInputChange = useCallback((
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
@@ -37,10 +38,12 @@ const Contact = () => {
       ...prev,
       [name]: value,
     }));
-  };
+  }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return; // Prevent double submission
+    
     setIsSubmitting(true);
 
     try {
@@ -79,9 +82,10 @@ const Contact = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }, [formData, isSubmitting, toast]);
 
-  const containerVariants = {
+  // Memoize animation variants to prevent recreation on each render
+  const containerVariants = useMemo(() => ({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -90,9 +94,9 @@ const Contact = () => {
         delayChildren: 0.2,
       },
     },
-  };
+  }), []);
 
-  const itemVariants = {
+  const itemVariants = useMemo(() => ({
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -102,7 +106,35 @@ const Contact = () => {
         ease: "easeOut",
       },
     },
-  };
+  }), []);
+
+  // Memoize the features data to prevent recreation
+  const features = useMemo(() => [
+    {
+      icon: Zap,
+      title: "Fast Delivery",
+      description: "Quick turnaround times without compromising quality",
+      color: "text-yellow-400",
+      bgColor: "from-yellow-500/10 to-orange-500/10",
+      borderColor: "border-yellow-500/20",
+    },
+    {
+      icon: Star,
+      title: "Quality Focused",
+      description: "Attention to detail and modern best practices",
+      color: "text-blue-400",
+      bgColor: "from-blue-500/10 to-purple-500/10",
+      borderColor: "border-blue-500/20",
+    },
+    {
+      icon: MessageCircle,
+      title: "Great Communication",
+      description: "Regular updates and transparent collaboration",
+      color: "text-green-400",
+      bgColor: "from-green-500/10 to-emerald-500/10",
+      borderColor: "border-green-500/20",
+    },
+  ], []);
 
   return (
     <div className="min-h-screen pt-20 pb-16 px-4 hero-gradient">
@@ -189,6 +221,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="John Doe"
                         required
+                        disabled={isSubmitting}
                         className="bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-300 h-12"
                       />
                     </motion.div>
@@ -211,6 +244,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="john@example.com"
                         required
+                        disabled={isSubmitting}
                         className="bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-300 h-12"
                       />
                     </motion.div>
@@ -234,6 +268,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="Project Discussion / Collaboration Opportunity"
                       required
+                      disabled={isSubmitting}
                       className="bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-300 h-12"
                     />
                   </motion.div>
@@ -256,6 +291,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="Tell me about your project, goals, and how I can help bring your vision to life..."
                       required
+                      disabled={isSubmitting}
                       rows={12}
                       className="bg-background/50 border-border/50 focus:border-primary/50 resize-none transition-all duration-300"
                     />
@@ -457,35 +493,9 @@ const Contact = () => {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Zap,
-                title: "Fast Delivery",
-                description:
-                  "Quick turnaround times without compromising quality",
-                color: "text-yellow-400",
-                bgColor: "from-yellow-500/10 to-orange-500/10",
-                borderColor: "border-yellow-500/20",
-              },
-              {
-                icon: Star,
-                title: "Quality Focused",
-                description: "Attention to detail and modern best practices",
-                color: "text-blue-400",
-                bgColor: "from-blue-500/10 to-purple-500/10",
-                borderColor: "border-blue-500/20",
-              },
-              {
-                icon: MessageCircle,
-                title: "Great Communication",
-                description: "Regular updates and transparent collaboration",
-                color: "text-green-400",
-                bgColor: "from-green-500/10 to-emerald-500/10",
-                borderColor: "border-green-500/20",
-              },
-            ].map((item, index) => (
+            {features.map((item, index) => (
               <motion.div
-                key={index}
+                key={item.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ scale: 1.05, y: -5 }}
