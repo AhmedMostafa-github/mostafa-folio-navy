@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import {
   Mail,
   Linkedin,
@@ -42,15 +43,42 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+          }
+        ]);
+
+      if (error) {
+        console.error('Error submitting form:', error);
+        toast({
+          title: "Error",
+          description: "There was an error submitting your message. Please try again.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error);
       toast({
-        title: "Message Sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: "Error",
+        description: "There was an unexpected error. Please try again.",
+        variant: "destructive",
       });
-      setFormData({ name: "", email: "", subject: "", message: "" });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const containerVariants = {
