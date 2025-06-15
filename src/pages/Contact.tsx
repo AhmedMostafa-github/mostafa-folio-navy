@@ -1,4 +1,3 @@
-
 import { useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -518,12 +517,12 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <div className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
+          <div className="mb-8">
             <CircularText 
               text="Why Work With Me?" 
               spinDuration={15}
               onHover="speedUp"
-              className="h-32 w-32 mx-auto"
+              className="mx-auto"
             />
           </div>
 

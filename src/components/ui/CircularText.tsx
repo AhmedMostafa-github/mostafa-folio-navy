@@ -104,7 +104,12 @@ const CircularText: React.FC<CircularTextProps> = ({
   return (
     <motion.div
       className={`circular-text relative ${className}`}
-      style={{ rotate: rotation }}
+      style={{ 
+        rotate: rotation,
+        width: "200px",
+        height: "200px",
+        margin: "0 auto"
+      }}
       initial={{ rotate: 0 }}
       animate={controls}
       onMouseEnter={handleHoverStart}
@@ -112,18 +117,23 @@ const CircularText: React.FC<CircularTextProps> = ({
     >
       {letters.map((letter, i) => {
         const rotationDeg = (360 / letters.length) * i;
-        const factor = Math.PI / letters.length;
-        const x = factor * i;
-        const y = factor * i;
-        const transform = `rotateZ(${rotationDeg}deg) translate3d(${x}px, ${y}px, 0)`;
-
+        const radius = 80; // Distance from center
+        const angleInRadians = (rotationDeg * Math.PI) / 180;
+        const x = Math.cos(angleInRadians) * radius;
+        const y = Math.sin(angleInRadians) * radius;
+        
         return (
           <span
             key={i}
-            className="absolute inline-block inset-0 text-2xl transition-all duration-500 ease-[cubic-bezier(0,0,0,1)]"
-            style={{ transform, WebkitTransform: transform }}
+            className="absolute text-2xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent"
+            style={{ 
+              left: "50%",
+              top: "50%",
+              transform: `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${rotationDeg + 90}deg)`,
+              transformOrigin: "center"
+            }}
           >
-            {letter}
+            {letter === " " ? "\u00A0" : letter}
           </span>
         );
       })}
