@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import {
   motion,
@@ -21,7 +20,7 @@ const getRotationTransition = (
   loop: boolean = true
 ) => ({
   from,
-  to: from + 360,
+  to: from - 360,
   ease: "linear" as const,
   duration,
   type: "tween" as const,
@@ -50,7 +49,7 @@ const CircularText: React.FC<CircularTextProps> = ({
   useEffect(() => {
     const start = rotation.get();
     controls.start({
-      rotate: start + 360,
+      rotate: start - 360,
       scale: 1,
       transition: getTransition(spinDuration, start),
     });
@@ -86,7 +85,7 @@ const CircularText: React.FC<CircularTextProps> = ({
     }
 
     controls.start({
-      rotate: start + 360,
+      rotate: start - 360,
       scale: scaleVal,
       transition: transitionConfig,
     });
@@ -95,7 +94,7 @@ const CircularText: React.FC<CircularTextProps> = ({
   const handleHoverEnd = () => {
     const start = rotation.get();
     controls.start({
-      rotate: start + 360,
+      rotate: start - 360,
       scale: 1,
       transition: getTransition(spinDuration, start),
     });
@@ -104,11 +103,11 @@ const CircularText: React.FC<CircularTextProps> = ({
   return (
     <motion.div
       className={`circular-text relative ${className}`}
-      style={{ 
+      style={{
         rotate: rotation,
         width: "200px",
         height: "200px",
-        margin: "0 auto"
+        margin: "0 auto",
       }}
       initial={{ rotate: 0 }}
       animate={controls}
@@ -121,16 +120,18 @@ const CircularText: React.FC<CircularTextProps> = ({
         const angleInRadians = (rotationDeg * Math.PI) / 180;
         const x = Math.cos(angleInRadians) * radius;
         const y = Math.sin(angleInRadians) * radius;
-        
+
         return (
           <span
             key={i}
             className="absolute text-2xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent"
-            style={{ 
+            style={{
               left: "50%",
               top: "50%",
-              transform: `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${rotationDeg + 90}deg)`,
-              transformOrigin: "center"
+              transform: `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${
+                rotationDeg + 90
+              }deg)`,
+              transformOrigin: "center",
             }}
           >
             {letter === " " ? "\u00A0" : letter}
