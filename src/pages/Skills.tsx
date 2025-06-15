@@ -1,8 +1,8 @@
-
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import SplashCursor from "@/components/ui/splashCursor";
+import DecryptedText from "@/components/ui/DecryptedText";
 
 const skillCategories = [
   {
@@ -91,12 +91,22 @@ const Skills = () => {
           className="text-center mb-16 mt-12"
         >
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6">
-            Skills & Technologies
+            <DecryptedText 
+              text="Skills & Technologies" 
+              animateOn="view"
+              speed={100}
+              sequential={true}
+              revealDirection="start"
+            />
           </h1>
           <p className="text-xl text-[#D7E7F9] max-w-3xl mx-auto">
-            A comprehensive overview of the technologies, frameworks, and tools
-            I use to build scalable and efficient solutions across the full
-            development stack.
+            <DecryptedText 
+              text="A comprehensive overview of the technologies, frameworks, and tools I use to build scalable and efficient solutions across the full development stack."
+              animateOn="view"
+              speed={30}
+              sequential={true}
+              revealDirection="start"
+            />
           </p>
         </motion.div>
 
@@ -138,7 +148,13 @@ const Skills = () => {
                     >
                       {category.icon}
                     </motion.span>
-                    {category.category}
+                    <DecryptedText 
+                      text={category.category}
+                      animateOn="hover"
+                      speed={100}
+                      sequential={true}
+                      revealDirection="start"
+                    />
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -178,7 +194,13 @@ const Skills = () => {
           <Card className="bg-card border-border overflow-hidden card-glow">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-center">
-                Core Competencies
+                <DecryptedText 
+                  text="Core Competencies"
+                  animateOn="view"
+                  speed={100}
+                  sequential={true}
+                  revealDirection="center"
+                />
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -214,10 +236,22 @@ const Skills = () => {
                     className="p-4"
                   >
                     <h3 className="text-lg font-semibold mb-2 text-primary">
-                      {competency.title}
+                      <DecryptedText 
+                        text={competency.title}
+                        animateOn="hover"
+                        speed={80}
+                        sequential={true}
+                        revealDirection="start"
+                      />
                     </h3>
                     <p className="text-muted-foreground text-sm">
-                      {competency.description}
+                      <DecryptedText 
+                        text={competency.description}
+                        animateOn="hover"
+                        speed={40}
+                        sequential={true}
+                        revealDirection="start"
+                      />
                     </p>
                   </motion.div>
                 ))}

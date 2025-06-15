@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -6,6 +7,7 @@ import SplashCursor from "@/components/ui/splashCursor";
 import RotatingText from "@/components/ui/rotatingText";
 import CountUp from "@/components/ui/CountUp";
 import BrushStroke from "@/components/ui/BrushStroke";
+import DecryptedText from "@/components/ui/DecryptedText";
 
 const Index = () => {
   const containerVariants = {
@@ -117,7 +119,13 @@ const Index = () => {
               variants={itemVariants}
               className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent pb-2"
             >
-              HOLA 👋🏻, I'm Ahmed Mostafa
+              <DecryptedText 
+                text="HOLA 👋🏻, I'm Ahmed Mostafa" 
+                animateOn="view"
+                speed={80}
+                sequential={true}
+                revealDirection="start"
+              />
             </motion.h1>
 
             <motion.div
@@ -129,7 +137,13 @@ const Index = () => {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="text-primary-blue"
               >
-                Senior Mobile Engineer
+                <DecryptedText 
+                  text="Senior Mobile Engineer" 
+                  animateOn="view"
+                  speed={100}
+                  sequential={true}
+                  revealDirection="start"
+                />
               </motion.span>
             </motion.div>
 
@@ -137,9 +151,13 @@ const Index = () => {
               variants={itemVariants}
               className="text-lg text-[#D7E7F9] md:text-xl max-w-3xl mx-auto leading-relaxed"
             >
-              Crafting exceptional digital experiences with modern technologies.
-              Specialized in Mobile development, scalable architectures, and
-              innovative solutions.
+              <DecryptedText 
+                text="Crafting exceptional digital experiences with modern technologies. Specialized in Mobile development, scalable architectures, and innovative solutions."
+                animateOn="view"
+                speed={30}
+                sequential={true}
+                revealDirection="start"
+              />
             </motion.p>
 
             <motion.div
@@ -241,7 +259,15 @@ const Index = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent pb-2 flex items-center flex-wrap justify-center">
-              <span className="mb-4 md:mb-0">Building the</span>
+              <span className="mb-4 md:mb-0">
+                <DecryptedText 
+                  text="Building the" 
+                  animateOn="view"
+                  speed={100}
+                  sequential={true}
+                  revealDirection="start"
+                />
+              </span>
               <BrushStroke className="min-w-[300px] px-12 py-2">
                 <RotatingText
                   texts={["Future", "Innovation ;)", "Dreams!"]}
@@ -258,9 +284,13 @@ const Index = () => {
               </BrushStroke>
             </h2>
             <p className="text-xl text-[#D7E7F9] max-w-3xl mx-auto">
-              With years of experience in software development, I focus on
-              creating scalable solutions that drive business growth and user
-              satisfaction.
+              <DecryptedText 
+                text="With years of experience in software development, I focus on creating scalable solutions that drive business growth and user satisfaction."
+                animateOn="view"
+                speed={30}
+                sequential={true}
+                revealDirection="start"
+              />
             </p>
           </motion.div>
 

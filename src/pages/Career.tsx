@@ -1,8 +1,8 @@
-
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import SplashCursor from "@/components/ui/splashCursor";
+import DecryptedText from "@/components/ui/DecryptedText";
 
 const careerHistory = [
   {
@@ -92,7 +92,13 @@ const Career = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Career Journey
+            <DecryptedText 
+              text="Career Journey" 
+              animateOn="view"
+              speed={100}
+              sequential={true}
+              revealDirection="start"
+            />
           </motion.h1>
           <motion.p
             className="text-xl text-[#D7E7F9] max-w-3xl mx-auto"
@@ -100,9 +106,13 @@ const Career = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            My professional evolution from junior developer to senior engineer,
-            showcasing growth, achievements, and the technologies that shaped my
-            career.
+            <DecryptedText 
+              text="My professional evolution from junior developer to senior engineer, showcasing growth, achievements, and the technologies that shaped my career."
+              animateOn="view"
+              speed={30}
+              sequential={true}
+              revealDirection="start"
+            />
           </motion.p>
         </motion.div>
 
@@ -179,11 +189,23 @@ const Career = () => {
                         </motion.span>
                         <div className="flex-1">
                           <CardTitle className="text-xl font-semibold text-foreground">
-                            {job.position}
+                            <DecryptedText 
+                              text={job.position}
+                              animateOn="hover"
+                              speed={80}
+                              sequential={true}
+                              revealDirection="start"
+                            />
                           </CardTitle>
                           <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-1">
                             <span className="text-lg font-medium text-primary">
-                              {job.company}
+                              <DecryptedText 
+                                text={job.company}
+                                animateOn="hover"
+                                speed={100}
+                                sequential={true}
+                                revealDirection="start"
+                              />
                             </span>
                             <Badge
                               variant="outline"
@@ -198,7 +220,13 @@ const Career = () => {
 
                     <CardContent className="space-y-6">
                       <p className="text-primary-blue leading-relaxed">
-                        {job.description}
+                        <DecryptedText 
+                          text={job.description}
+                          animateOn="hover"
+                          speed={30}
+                          sequential={true}
+                          revealDirection="start"
+                        />
                       </p>
 
                       <div>

@@ -4,6 +4,7 @@ import WorldMap from "@/components/WorldMap";
 import { Globe, Users, Zap, Target } from "lucide-react";
 import SplashCursor from "@/components/ui/splashCursor";
 import CountUp from "@/components/ui/CountUp";
+import DecryptedText from "@/components/ui/DecryptedText";
 
 const About = () => {
   const coreValues = [
@@ -54,7 +55,13 @@ const About = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            About Me
+            <DecryptedText 
+              text="About Me" 
+              animateOn="view"
+              speed={100}
+              sequential={true}
+              revealDirection="start"
+            />
           </motion.h1>
           <motion.p
             className="text-xl text-[#D7E7F9] max-w-3xl mx-auto"
@@ -62,8 +69,13 @@ const About = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Passionate about creating innovative solutions and building
-            exceptional digital experiences across the globe
+            <DecryptedText 
+              text="Passionate about creating innovative solutions and building exceptional digital experiences across the globe"
+              animateOn="view"
+              speed={30}
+              sequential={true}
+              revealDirection="start"
+            />
           </motion.p>
         </motion.div>
 
@@ -78,7 +90,13 @@ const About = () => {
           <Card className="bg-card border-border hover:border-blue-500/50 transition-all duration-500 overflow-hidden card-glow">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-foreground">
-                My Story
+                <DecryptedText 
+                  text="My Story"
+                  animateOn="view"
+                  speed={100}
+                  sequential={true}
+                  revealDirection="start"
+                />
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6 text-primary-blue leading-relaxed">
@@ -88,11 +106,13 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                My journey into software development began with a curiosity
-                about how things work. What started as tinkering with HTML and
-                CSS in college evolved into a passion for creating robust,
-                scalable applications that solve real-world problems across
-                different cultures and markets.
+                <DecryptedText 
+                  text="My journey into software development began with a curiosity about how things work. What started as tinkering with HTML and CSS in college evolved into a passion for creating robust, scalable applications that solve real-world problems across different cultures and markets."
+                  animateOn="view"
+                  speed={30}
+                  sequential={true}
+                  revealDirection="start"
+                />
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -100,11 +120,13 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                This international experience has taught me that great software
-                is not just about clean code—it's about understanding diverse
-                user needs, collaborating across time zones and cultures, and
-                continuously adapting to different technological landscapes and
-                business requirements.
+                <DecryptedText 
+                  text="This international experience has taught me that great software is not just about clean code—it's about understanding diverse user needs, collaborating across time zones and cultures, and continuously adapting to different technological landscapes and business requirements."
+                  animateOn="view"
+                  speed={30}
+                  sequential={true}
+                  revealDirection="start"
+                />
               </motion.p>
             </CardContent>
           </Card>
