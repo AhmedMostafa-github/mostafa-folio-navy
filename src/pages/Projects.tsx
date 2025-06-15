@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -120,8 +119,8 @@ const Projects = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6"
           >
-            <DecryptedText 
-              text="Projects" 
+            <DecryptedText
+              text="Projects"
               animateOn="view"
               speed={100}
               sequential={true}
@@ -134,10 +133,10 @@ const Projects = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-xl text-[#D7E7F9] text-primary-blue max-w-3xl mx-auto"
           >
-            <DecryptedText 
+            <DecryptedText
               text="A showcase of my recent work, demonstrating expertise across various technologies and industries. Each project represents a unique challenge solved with modern solutions."
               animateOn="view"
-              speed={30}
+              speed={10}
               sequential={true}
               revealDirection="start"
             />

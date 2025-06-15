@@ -91,19 +91,19 @@ const Skills = () => {
           className="text-center mb-16 mt-12"
         >
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6">
-            <DecryptedText 
-              text="Skills & Technologies" 
+            <DecryptedText
+              text="Skills & Technologies"
               animateOn="view"
               speed={100}
               sequential={true}
               revealDirection="start"
             />
           </h1>
-          <p className="text-xl text-[#D7E7F9] max-w-3xl mx-auto">
-            <DecryptedText 
+          <p className="text-xl text-[#D7E7F9] max-w-4xl mx-auto">
+            <DecryptedText
               text="A comprehensive overview of the technologies, frameworks, and tools I use to build scalable and efficient solutions across the full development stack."
               animateOn="view"
-              speed={30}
+              speed={15}
               sequential={true}
               revealDirection="start"
             />

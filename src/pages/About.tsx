@@ -55,8 +55,8 @@ const About = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <DecryptedText 
-              text="About Me" 
+            <DecryptedText
+              text="About Me"
               animateOn="view"
               speed={100}
               sequential={true}
@@ -69,10 +69,10 @@ const About = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <DecryptedText 
+            <DecryptedText
               text="Passionate about creating innovative solutions and building exceptional digital experiences across the globe"
               animateOn="view"
-              speed={30}
+              speed={15}
               sequential={true}
               revealDirection="start"
             />
@@ -100,7 +100,11 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                My journey into software development began with a curiosity about how things work. What started as tinkering with HTML and CSS in college evolved into a passion for creating robust, scalable applications that solve real-world problems across different cultures and markets.
+                My journey into software development began with a curiosity
+                about how things work. What started as tinkering with HTML and
+                CSS in college evolved into a passion for creating robust,
+                scalable applications that solve real-world problems across
+                different cultures and markets.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -108,7 +112,11 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                This international experience has taught me that great software is not just about clean code—it's about understanding diverse user needs, collaborating across time zones and cultures, and continuously adapting to different technological landscapes and business requirements.
+                This international experience has taught me that great software
+                is not just about clean code—it's about understanding diverse
+                user needs, collaborating across time zones and cultures, and
+                continuously adapting to different technological landscapes and
+                business requirements.
               </motion.p>
             </CardContent>
           </Card>

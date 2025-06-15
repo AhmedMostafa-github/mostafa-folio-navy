@@ -92,8 +92,8 @@ const Career = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <DecryptedText 
-              text="Career Journey" 
+            <DecryptedText
+              text="Career Journey"
               animateOn="view"
               speed={100}
               sequential={true}
@@ -101,15 +101,15 @@ const Career = () => {
             />
           </motion.h1>
           <motion.p
-            className="text-xl text-[#D7E7F9] max-w-3xl mx-auto"
+            className="text-xl text-[#D7E7F9] max-w-4xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <DecryptedText 
+            <DecryptedText
               text="My professional evolution from junior developer to senior engineer, showcasing growth, achievements, and the technologies that shaped my career."
               animateOn="view"
-              speed={30}
+              speed={15}
               sequential={true}
               revealDirection="start"
             />
