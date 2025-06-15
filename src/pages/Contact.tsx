@@ -1,3 +1,4 @@
+
 import { useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -19,6 +20,7 @@ import {
 } from "lucide-react";
 import SplashCursor from "@/components/ui/splashCursor";
 import DecryptedText from "@/components/ui/DecryptedText";
+import CircularText from "@/components/ui/CircularText";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -516,9 +518,14 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
-            Why Work With Me?
-          </h2>
+          <div className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
+            <CircularText 
+              text="Why Work With Me?" 
+              spinDuration={15}
+              onHover="speedUp"
+              className="h-32 w-32 mx-auto"
+            />
+          </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {features.map((item, index) => (
