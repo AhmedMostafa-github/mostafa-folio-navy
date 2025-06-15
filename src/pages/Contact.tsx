@@ -162,7 +162,6 @@ const Contact = () => {
         >
           <motion.h1
             className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent leading-tight pb-6"
-            whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
             <DecryptedText
