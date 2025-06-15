@@ -90,13 +90,7 @@ const About = () => {
           <Card className="bg-card border-border hover:border-blue-500/50 transition-all duration-500 overflow-hidden card-glow">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-foreground">
-                <DecryptedText 
-                  text="My Story"
-                  animateOn="view"
-                  speed={100}
-                  sequential={true}
-                  revealDirection="start"
-                />
+                My Story
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6 text-primary-blue leading-relaxed">
@@ -106,13 +100,7 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <DecryptedText 
-                  text="My journey into software development began with a curiosity about how things work. What started as tinkering with HTML and CSS in college evolved into a passion for creating robust, scalable applications that solve real-world problems across different cultures and markets."
-                  animateOn="view"
-                  speed={30}
-                  sequential={true}
-                  revealDirection="start"
-                />
+                My journey into software development began with a curiosity about how things work. What started as tinkering with HTML and CSS in college evolved into a passion for creating robust, scalable applications that solve real-world problems across different cultures and markets.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -120,13 +108,7 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <DecryptedText 
-                  text="This international experience has taught me that great software is not just about clean code—it's about understanding diverse user needs, collaborating across time zones and cultures, and continuously adapting to different technological landscapes and business requirements."
-                  animateOn="view"
-                  speed={30}
-                  sequential={true}
-                  revealDirection="start"
-                />
+                This international experience has taught me that great software is not just about clean code—it's about understanding diverse user needs, collaborating across time zones and cultures, and continuously adapting to different technological landscapes and business requirements.
               </motion.p>
             </CardContent>
           </Card>

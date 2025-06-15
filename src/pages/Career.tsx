@@ -189,23 +189,11 @@ const Career = () => {
                         </motion.span>
                         <div className="flex-1">
                           <CardTitle className="text-xl font-semibold text-foreground">
-                            <DecryptedText 
-                              text={job.position}
-                              animateOn="hover"
-                              speed={80}
-                              sequential={true}
-                              revealDirection="start"
-                            />
+                            {job.position}
                           </CardTitle>
                           <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-1">
                             <span className="text-lg font-medium text-primary">
-                              <DecryptedText 
-                                text={job.company}
-                                animateOn="hover"
-                                speed={100}
-                                sequential={true}
-                                revealDirection="start"
-                              />
+                              {job.company}
                             </span>
                             <Badge
                               variant="outline"
@@ -220,13 +208,7 @@ const Career = () => {
 
                     <CardContent className="space-y-6">
                       <p className="text-primary-blue leading-relaxed">
-                        <DecryptedText 
-                          text={job.description}
-                          animateOn="hover"
-                          speed={30}
-                          sequential={true}
-                          revealDirection="start"
-                        />
+                        {job.description}
                       </p>
 
                       <div>

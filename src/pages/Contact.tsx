@@ -19,6 +19,7 @@ import {
   Zap,
 } from "lucide-react";
 import SplashCursor from "@/components/ui/splashCursor";
+import DecryptedText from "@/components/ui/DecryptedText";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -152,14 +153,13 @@ const Contact = () => {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            Let's Create Something
-            <motion.span
-              className="block text-primary-blue"
-              animate={{ opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              Amazing Together
-            </motion.span>
+            <DecryptedText 
+              text="Let's Create Something Amazing Together" 
+              animateOn="view"
+              speed={100}
+              sequential={true}
+              revealDirection="start"
+            />
           </motion.h1>
           <motion.p
             className="text-xl text-[#D7E7F9] max-w-4xl mx-auto leading-relaxed"
@@ -167,9 +167,13 @@ const Contact = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Ready to bring your ideas to life? I'm here to help you build
-            exceptional digital experiences. Let's discuss your project and make
-            it happen.
+            <DecryptedText 
+              text="Ready to bring your ideas to life? I'm here to help you build exceptional digital experiences. Let's discuss your project and make it happen."
+              animateOn="view"
+              speed={30}
+              sequential={true}
+              revealDirection="start"
+            />
           </motion.p>
         </motion.div>
 

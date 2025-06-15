@@ -148,13 +148,7 @@ const Skills = () => {
                     >
                       {category.icon}
                     </motion.span>
-                    <DecryptedText 
-                      text={category.category}
-                      animateOn="hover"
-                      speed={100}
-                      sequential={true}
-                      revealDirection="start"
-                    />
+                    {category.category}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -194,13 +188,7 @@ const Skills = () => {
           <Card className="bg-card border-border overflow-hidden card-glow">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-center">
-                <DecryptedText 
-                  text="Core Competencies"
-                  animateOn="view"
-                  speed={100}
-                  sequential={true}
-                  revealDirection="center"
-                />
+                Core Competencies
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -236,22 +224,10 @@ const Skills = () => {
                     className="p-4"
                   >
                     <h3 className="text-lg font-semibold mb-2 text-primary">
-                      <DecryptedText 
-                        text={competency.title}
-                        animateOn="hover"
-                        speed={80}
-                        sequential={true}
-                        revealDirection="start"
-                      />
+                      {competency.title}
                     </h3>
                     <p className="text-muted-foreground text-sm">
-                      <DecryptedText 
-                        text={competency.description}
-                        animateOn="hover"
-                        speed={40}
-                        sequential={true}
-                        revealDirection="start"
-                      />
+                      {competency.description}
                     </p>
                   </motion.div>
                 ))}
