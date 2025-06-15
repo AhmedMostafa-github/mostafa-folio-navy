@@ -520,8 +520,8 @@ const Contact = () => {
           <div className="mb-8">
             <CircularText
               text="Why*Work*With*Me?*"
-              spinDuration={20}
-              onHover="goBonkers"
+              spinDuration={15}
+              onHover="pause"
               className="mx-auto"
             />
           </div>
