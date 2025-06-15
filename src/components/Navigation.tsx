@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import CircularText from "@/components/ui/CircularText";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -29,12 +28,7 @@ export const Navigation = () => {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link to="/" className="text-2xl font-bold text-glow">
               <span className="bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent">
-                <CircularText
-                  text="Ahmed*Mostafa*"
-                  spinDuration={15}
-                  onHover="pause"
-                  className="mx-auto"
-                />
+                Ahmed Mostafa
               </span>
             </Link>
           </motion.div>
