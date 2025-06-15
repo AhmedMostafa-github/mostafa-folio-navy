@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import SplashCursor from "@/components/ui/splashCursor";
 import DecryptedText from "@/components/ui/DecryptedText";
+import ScrollFloat from "@/components/ui/ScrollFloat";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -516,9 +517,12 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
+          <ScrollFloat
+            containerClassName="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent"
+            textClassName="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent"
+          >
             Why Work With Me?
-          </h2>
+          </ScrollFloat>
 
           <div className="grid md:grid-cols-3 gap-6">
             {features.map((item, index) => (
