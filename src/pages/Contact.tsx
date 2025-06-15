@@ -192,9 +192,7 @@ const Contact = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <DecryptedText
-              text=" Ready to bring your ideas to life? I'm here to help you build
-            exceptional digital experiences. Let's discuss your project and make
-            it happen."
+              text=" Ready to bring your ideas to life? I'm here to help you build exceptional digital experiences. Let's discuss your project and make it happen."
               animateOn="view"
               speed={15}
               sequential={true}
