@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import WorldMap from "@/components/WorldMap";
@@ -156,11 +155,22 @@ const About = () => {
                   className="grid grid-cols-2 gap-4 pt-4"
                 >
                   <div className="text-center p-4 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg border border-blue-500/20">
-                    <CountUp end={6} duration={2000} delay={1000} className="text-2xl font-bold text-primary" />
+                    <CountUp
+                      end={6}
+                      duration={2000}
+                      delay={1000}
+                      className="text-2xl font-bold text-primary"
+                    />
                     <div className="text-sm text-primary-blue">Countries</div>
                   </div>
                   <div className="text-center p-4 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-lg border border-green-500/20">
-                    <CountUp end={50} duration={2500} delay={1200} suffix="+" className="text-2xl font-bold text-primary" />
+                    <CountUp
+                      end={35}
+                      duration={2500}
+                      delay={1200}
+                      suffix="+"
+                      className="text-2xl font-bold text-primary"
+                    />
                     <div className="text-sm text-primary-blue">Projects</div>
                   </div>
                 </motion.div>
@@ -177,7 +187,7 @@ const About = () => {
             <Card className="bg-card border-border hover:border-blue-500/50 transition-all duration-500 h-full overflow-hidden card-glow">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold text-foreground">
-                  Countries I've Worked In
+                  Countries I've Worked With
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -213,7 +223,7 @@ const About = () => {
             <h2 className="text-3xl font-bold text-foreground mb-4">
               Core Values & Philosophy
             </h2>
-            <p className="text-primary-blue max-w-2xl mx-auto">
+            <p className="text-[#D7E7F9] max-w-2xl mx-auto">
               The principles that guide my approach to technology and
               collaboration
             </p>

@@ -257,7 +257,7 @@ const Index = () => {
                 />
               </BrushStroke>
             </h2>
-            <p className="text-xl text-primary-blue max-w-3xl mx-auto">
+            <p className="text-xl text-[#D7E7F9] max-w-3xl mx-auto">
               With years of experience in software development, I focus on
               creating scalable solutions that drive business growth and user
               satisfaction.
