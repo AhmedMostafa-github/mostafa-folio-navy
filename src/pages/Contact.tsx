@@ -1,4 +1,3 @@
-
 import { useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -31,111 +30,124 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleInputChange = useCallback((
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  }, []);
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const { name, value } = e.target;
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    },
+    []
+  );
 
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (isSubmitting) return; // Prevent double submission
-    
-    setIsSubmitting(true);
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
+      if (isSubmitting) return; // Prevent double submission
 
-    try {
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert([
+      setIsSubmitting(true);
+
+      try {
+        const { error } = await supabase.from("contact_submissions").insert([
           {
             name: formData.name,
             email: formData.email,
             subject: formData.subject,
             message: formData.message,
-          }
+          },
         ]);
 
-      if (error) {
-        console.error('Error submitting form:', error);
+        if (error) {
+          console.error("Error submitting form:", error);
+          toast({
+            title: "Error",
+            description:
+              "There was an error submitting your message. Please try again.",
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Message Sent!",
+            description:
+              "Thank you for your message. I'll get back to you soon.",
+          });
+          setFormData({ name: "", email: "", subject: "", message: "" });
+        }
+      } catch (error) {
+        console.error("Unexpected error:", error);
         toast({
           title: "Error",
-          description: "There was an error submitting your message. Please try again.",
+          description: "There was an unexpected error. Please try again.",
           variant: "destructive",
         });
-      } else {
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for your message. I'll get back to you soon.",
-        });
-        setFormData({ name: "", email: "", subject: "", message: "" });
+      } finally {
+        setIsSubmitting(false);
       }
-    } catch (error) {
-      console.error('Unexpected error:', error);
-      toast({
-        title: "Error",
-        description: "There was an unexpected error. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  }, [formData, isSubmitting, toast]);
+    },
+    [formData, isSubmitting, toast]
+  );
 
   // Memoize animation variants to prevent recreation on each render
-  const containerVariants = useMemo(() => ({
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+  const containerVariants = useMemo(
+    () => ({
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: {
+          staggerChildren: 0.1,
+          delayChildren: 0.2,
+        },
       },
-    },
-  }), []);
+    }),
+    []
+  );
 
-  const itemVariants = useMemo(() => ({
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
+  const itemVariants = useMemo(
+    () => ({
+      hidden: { opacity: 0, y: 30 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 0.6,
+          ease: "easeOut",
+        },
       },
-    },
-  }), []);
+    }),
+    []
+  );
 
   // Memoize the features data to prevent recreation
-  const features = useMemo(() => [
-    {
-      icon: Zap,
-      title: "Fast Delivery",
-      description: "Quick turnaround times without compromising quality",
-      color: "text-yellow-400",
-      bgColor: "from-yellow-500/10 to-orange-500/10",
-      borderColor: "border-yellow-500/20",
-    },
-    {
-      icon: Star,
-      title: "Quality Focused",
-      description: "Attention to detail and modern best practices",
-      color: "text-blue-400",
-      bgColor: "from-blue-500/10 to-purple-500/10",
-      borderColor: "border-blue-500/20",
-    },
-    {
-      icon: MessageCircle,
-      title: "Great Communication",
-      description: "Regular updates and transparent collaboration",
-      color: "text-green-400",
-      bgColor: "from-green-500/10 to-emerald-500/10",
-      borderColor: "border-green-500/20",
-    },
-  ], []);
+  const features = useMemo(
+    () => [
+      {
+        icon: Zap,
+        title: "Fast Delivery",
+        description: "Quick turnaround times without compromising quality",
+        color: "text-yellow-400",
+        bgColor: "from-yellow-500/10 to-orange-500/10",
+        borderColor: "border-yellow-500/20",
+      },
+      {
+        icon: Star,
+        title: "Quality Focused",
+        description: "Attention to detail and modern best practices",
+        color: "text-blue-400",
+        bgColor: "from-blue-500/10 to-purple-500/10",
+        borderColor: "border-blue-500/20",
+      },
+      {
+        icon: MessageCircle,
+        title: "Great Communication",
+        description: "Regular updates and transparent collaboration",
+        color: "text-green-400",
+        bgColor: "from-green-500/10 to-emerald-500/10",
+        borderColor: "border-green-500/20",
+      },
+    ],
+    []
+  );
 
   return (
     <div className="min-h-screen pt-20 pb-16 px-4 hero-gradient">
@@ -153,13 +165,26 @@ const Contact = () => {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            <DecryptedText 
-              text="Let's Create Something Amazing Together" 
+            <DecryptedText
+              text="Let's Create Something"
               animateOn="view"
-              speed={100}
+              speed={70}
               sequential={true}
               revealDirection="start"
             />
+            <motion.span
+              className="block text-primary-blue"
+              animate={{ opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <DecryptedText
+                text="Amazing Together"
+                animateOn="view"
+                speed={100}
+                sequential={true}
+                revealDirection="start"
+              />
+            </motion.span>
           </motion.h1>
           <motion.p
             className="text-xl text-[#D7E7F9] max-w-4xl mx-auto leading-relaxed"
@@ -167,10 +192,12 @@ const Contact = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <DecryptedText 
-              text="Ready to bring your ideas to life? I'm here to help you build exceptional digital experiences. Let's discuss your project and make it happen."
+            <DecryptedText
+              text=" Ready to bring your ideas to life? I'm here to help you build
+            exceptional digital experiences. Let's discuss your project and make
+            it happen."
               animateOn="view"
-              speed={30}
+              speed={15}
               sequential={true}
               revealDirection="start"
             />
