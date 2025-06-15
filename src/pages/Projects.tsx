@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -182,22 +183,10 @@ const Projects = () => {
 
                 <CardHeader>
                   <CardTitle className="text-xl font-semibold text-white group-hover:text-blue-300 transition-colors">
-                    <DecryptedText 
-                      text={project.title}
-                      animateOn="hover"
-                      speed={80}
-                      sequential={true}
-                      revealDirection="start"
-                    />
+                    {project.title}
                   </CardTitle>
                   <CardDescription className="text-primary-blue">
-                    <DecryptedText 
-                      text={project.description}
-                      animateOn="hover"
-                      speed={20}
-                      sequential={true}
-                      revealDirection="start"
-                    />
+                    {project.description}
                   </CardDescription>
                 </CardHeader>
 
