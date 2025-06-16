@@ -100,11 +100,12 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                My journey into software development began with a curiosity
-                about how things work. What started as tinkering with HTML and
-                CSS in college evolved into a passion for creating robust,
-                scalable applications that solve real-world problems across
-                different cultures and markets.
+                My journey into software development began after graduating in
+                Informatics and Computer Science from The British University in
+                Egypt. Driven by curiosity and a desire to solve real-world
+                problems, I’ve spent over 5 years building secure,
+                high-performance applications that serve users across industries
+                and continents.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -112,11 +113,14 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                This international experience has taught me that great software
-                is not just about clean code—it's about understanding diverse
-                user needs, collaborating across time zones and cultures, and
-                continuously adapting to different technological landscapes and
-                business requirements.
+                From fintech, e-education to smart cities projects, I’ve led
+                projects that demand scalability, speed, and security—delivering
+                seamless cross-platform experiences across iOS, Android, and
+                web. Through these experiences, I’ve learned that great software
+                isn’t just about clean code—it’s about understanding people,
+                adapting to diverse markets, and building with purpose. For me,
+                this is more than just development—it’s vibe coding: focused,
+                intentional, and built to make an impact.
               </motion.p>
             </CardContent>
           </Card>
@@ -144,10 +148,11 @@ const About = () => {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="text-primary-blue leading-relaxed"
                 >
-                  Over the past 5+ years, I've had the privilege of working with
-                  diverse clients and teams across six countries, delivering
-                  innovative software solutions that span continents and
-                  cultures.
+                  Over the past 5+ years, I’ve delivered impactful software
+                  across six countries—ranging from leading NEOM’s development
+                  in Saudi Arabia to building educational platforms, secure
+                  blockchain apps in the UAE, tourism solutions in Canada, and
+                  e-commerce platforms for the UK and US.
                 </motion.p>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -155,10 +160,12 @@ const About = () => {
                   transition={{ duration: 0.6, delay: 0.6 }}
                   className="text-primary-blue leading-relaxed"
                 >
-                  From fintech startups in Canada to enterprise solutions in the
-                  UAE, e-commerce platforms in the USA to digital transformation
-                  projects in the UK, each experience has enriched my
-                  understanding of global technology needs and best practices.
+                  In Egypt, I led the creation of secure, high-performance
+                  fintech apps, emphasizing end-to-end encryption and real-time
+                  data handling. These experiences have shaped my ability to
+                  build globally scalable, culturally aware, and technically
+                  resilient applications—while seamlessly collaborating across
+                  teams, time zones, and technologies.
                 </motion.p>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
